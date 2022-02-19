@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components{
+  .homeMain{
+    @apply
+    h-screen 
+    overflow-y-scroll 
+    scrollbar-hide 
+    max-w-full
+    lg:max-w-7xl
+    mx-auto
+    bg-gray-900
+    opacity-80
+  }
+
+  .appName{
+    @apply
+    text-2xl 
+    font-google-sans 
+    font-semibold 
+    text-red-800
+    hidden
+    lg:inline-flex
+  }
+
+  .headerRouters{
+    @apply
+    lg:flex 
+    hidden 
+    items-center 
+    space-x-6
+    font-google-sans
+    mx-auto 
+  }
+
+  .signInText{
+    @apply
+    text-base 
+    font-google-sans 
+    font-normal 
+    lg:inline-flex 
+    hidden
+  }
+}
