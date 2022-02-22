@@ -1,5 +1,16 @@
 //front-end
-import { Button, Icon, Modal, ModalHeader, ModalBody, ModalFooter } from '../..'
+import {
+  Button,
+  Icon,
+  Modal,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  GoogleIcon,
+  GitHubIcon,
+  FacebookIcon
+} from '../..'
+
 //back-end
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
@@ -160,10 +171,10 @@ function Header () {
           h-4
           w-4
           mr-2
-          bg-red-700
+          bg-purple-700
           text-center
           rounded-3xl
-          text-white
+          text-purple-50
           font-semibold
           '
             >
@@ -177,13 +188,64 @@ function Header () {
       <Modal size='lg' active={showSignIn} toggler={() => setShowSignIn(false)}>
         <ModalHeader toggler={() => setShowSignIn(false)}>Sign In</ModalHeader>
         <ModalBody>
-          <p className='text-base leading-relaxed text-gray-600 font-normal'>
-            I always felt like I could do anything. That’s the main thing people
-            are controlled by! Thoughts- their perception of themselves! They're
-            slowed down by their perception of themselves. If you're taught you
-            can’t do anything, you won’t do anything. I was taught I could do
-            everything.
-          </p>
+          <div
+            className='
+          space-y-5
+          p-5
+          '
+          >
+            <Button
+              color='green'
+              buttonType='filled'
+              size='regular'
+              iconOnly={false}
+              block={false}
+              rounded={false}
+              className='
+              capitalize 
+              font-google-sans  
+              space-x-4'
+            >
+              <GoogleIcon />
+              <h2 className='text-gray-50 text-base font-normal'>
+                Sign in with Google
+              </h2>
+            </Button>
+            <Button
+              color='gray'
+              buttonType='filled'
+              size='regular'
+              iconOnly={false}
+              block={false}
+              rounded={false}
+              className='
+              capitalize 
+              font-google-sans  
+              space-x-4'
+            >
+              <GitHubIcon />
+              <h2 className='text-gray-50 text-base font-normal'>
+                Sign in with GitHub
+              </h2>
+            </Button>
+            <Button
+              color='lightBlue'
+              buttonType='filled'
+              size='regular'
+              iconOnly={false}
+              block={false}
+              rounded={false}
+              className='
+              capitalize 
+              font-google-sans  
+              space-x-4'
+            >
+              <FacebookIcon />
+              <h2 className='text-gray-50 text-base font-normal'>
+                Sign in with Facebook
+              </h2>
+            </Button>
+          </div>
         </ModalBody>
         <ModalFooter>
           <Button
