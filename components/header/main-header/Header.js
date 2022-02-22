@@ -8,7 +8,8 @@ import {
   ModalFooter,
   GoogleIcon,
   GitHubIcon,
-  FacebookIcon
+  FacebookIcon,
+  TwitterIcon
 } from '../..'
 
 //back-end
@@ -243,6 +244,23 @@ function Header () {
               <FacebookIcon />
               <h2 className='text-gray-50 text-base font-normal'>
                 Sign in with Facebook
+              </h2>
+            </Button>
+            <Button
+              color='blue'
+              buttonType='filled'
+              size='regular'
+              iconOnly={false}
+              block={false}
+              rounded={false}
+              className='
+              capitalize 
+              font-google-sans  
+              space-x-4'
+            >
+              <TwitterIcon />
+              <h2 className='text-gray-50 text-base font-normal'>
+                Sign in with Twitter
               </h2>
             </Button>
           </div>

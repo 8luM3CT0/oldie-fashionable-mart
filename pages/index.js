@@ -27,7 +27,42 @@ export default function Home () {
         className='homeMain
 
       '
-      ></main>
+      >
+        <div
+          className='
+        mx-auto
+        lg:max-w-3xl
+        max-w-xl
+        flex-grow
+        flex
+        items-center
+        rounded-lg
+        space-y-8
+        space-x-4
+        p-10
+        mt-4
+        lg:h-[380px]
+        h-[190px]
+        bg-gray-800
+        overflow-x-scroll
+        scrollbar-hide
+        shadow-lg
+        '
+        ></div>
+        <h1
+          className='
+        font-google-sans 
+        mx-auto 
+        max-w-xl 
+        font-normal 
+        text-red-400 
+        text-xl
+        py-4
+        '
+        >
+          Top selling items
+        </h1>
+      </main>
     </div>
   )
 }
