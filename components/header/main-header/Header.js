@@ -36,6 +36,7 @@ function Header () {
             rounded={true}
             block={false}
             ripple='light'
+            className='lg:hidden'
           >
             <Icon name='menu' />
           </Button>
@@ -132,7 +133,7 @@ function Header () {
             onClick={e => setShowSignIn(true)}
             color='purple'
             buttonType='link'
-            size='lg'
+            size='regular'
             iconOnly={false}
             rounded={false}
             block={false}
@@ -141,6 +142,35 @@ function Header () {
           >
             <Icon name='person_add_alt' />
             <h5 className='signInText'>Sign in</h5>
+          </Button>
+          <Button
+            color='purple'
+            buttonType='link'
+            size='regular'
+            iconOnly={false}
+            rounded={false}
+            ripple='light'
+            className='flex relative items-center space-x-2 capitalize'
+          >
+            <span
+              className='
+          absolute 
+          top-0 
+          right-10 
+          h-4
+          w-4
+          mr-2
+          bg-red-700
+          text-center
+          rounded-3xl
+          text-white
+          font-semibold
+          '
+            >
+              <h2 className='text-sm'>0</h2>
+            </span>
+            <Icon name='production_quantity_limits' />
+            <h5 className='signInText'>Cart</h5>
           </Button>
         </div>
       </header>
@@ -169,13 +199,90 @@ function Header () {
       <Modal size='lg' active={showApps} toggler={() => setShowApps(false)}>
         <ModalHeader toggler={() => setShowApps(false)}>Apps</ModalHeader>
         <ModalBody>
-          <p className='text-base leading-relaxed text-gray-600 font-normal'>
-            I always felt like I could do anything. That’s the main thing people
-            are controlled by! Thoughts- their perception of themselves! They're
-            slowed down by their perception of themselves. If you're taught you
-            can’t do anything, you won’t do anything. I was taught I could do
-            everything.
-          </p>
+          <div
+            className='
+        space-y-5
+        p-8
+        '
+          >
+            <Button
+              color='blue'
+              size='lg'
+              buttonType='link'
+              rouded={false}
+              iconOnly={false}
+              block={false}
+              ripple='light'
+              className='
+        cursor-pointer
+        justify-evenly 
+        flex
+        items-center
+        font-normal
+        space-x-4
+        '
+            >
+              <Icon name='home' />
+              <h2 className='text-lg capitalize'>Home</h2>
+            </Button>
+            <Button
+              color='blue'
+              size='lg'
+              buttonType='link'
+              rouded={false}
+              iconOnly={false}
+              block={false}
+              ripple='light'
+              className='
+              cursor-pointer
+        justify-evenly 
+        flex
+        items-center
+        font-normal
+        space-x-4'
+            >
+              <Icon name='category' />
+              <h2 className='text-lg capitalize'>Products</h2>
+            </Button>
+            <Button
+              color='blue'
+              size='lg'
+              buttonType='link'
+              rouded={false}
+              iconOnly={false}
+              block={false}
+              ripple='light'
+              className='
+              cursor-pointer
+        justify-evenly 
+        flex
+        items-center
+        font-normal
+        space-x-4'
+            >
+              <Icon name='info' />
+              <h2 className='text-lg capitalize'>About</h2>
+            </Button>
+            <Button
+              color='blue'
+              size='lg'
+              buttonType='link'
+              rouded={false}
+              iconOnly={false}
+              block={false}
+              ripple='light'
+              className='
+              cursor-pointer
+        justify-evenly 
+        flex
+        items-center
+        font-normal
+        space-x-4'
+            >
+              <Icon name='price_change' />
+              <h2 className='text-lg capitalize'>Forex</h2>
+            </Button>
+          </div>
         </ModalBody>
         <ModalFooter>
           <Button
@@ -184,7 +291,7 @@ function Header () {
             onClick={e => setShowApps(false)}
             ripple='dark'
           >
-            Cancel
+            Close
           </Button>
         </ModalFooter>
       </Modal>

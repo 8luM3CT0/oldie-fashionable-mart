@@ -1,3 +1,5 @@
+import { Provider } from 'react-redux'
+import { store } from '../app/store'
 import '../styles/globals.css'
 import '@material-tailwind/react/tailwind.css'
 import Router from 'next/router'
@@ -17,13 +19,13 @@ Router.events.on('routeChangeError', progress.finish)
 
 function MyApp ({ Component, pageProps }) {
   return (
-    <>
+    <Provider store={store}>
       <link
         href='https://fonts.googleapis.com/icon?family=Material+Icons'
         rel='stylesheet'
       />
       <Component {...pageProps} />
-    </>
+    </Provider>
   )
 }
 
