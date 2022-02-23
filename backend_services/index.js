@@ -1,0 +1,1 @@
+export {default as featured_json} from './jsons/featured_json.json'

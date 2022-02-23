@@ -1,9 +1,12 @@
 //front-end
 import Head from 'next/head'
-import { Header } from '../components'
+import { Header, ProductFeed } from '../components'
 //back-end
+import { featured_json } from '../backend_services/index'
 
 export default function Home () {
+  console.log(featured_json)
+
   return (
     <div
       className='
@@ -62,6 +65,7 @@ export default function Home () {
         >
           Top selling items
         </h1>
+        <ProductFeed items={featured_json} />
       </main>
     </div>
   )
