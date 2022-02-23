@@ -53,7 +53,12 @@ export default function Home () {
         '
         >
           {top_items.map(items => (
-            <TopItem key={items.id} id={items.id} item_jpg={items.item_jpg} />
+            <TopItem
+              key={items.id}
+              id={items.id}
+              item_jpg={items.item_jpg}
+              category={items.category}
+            />
           ))}
         </div>
         <h1
