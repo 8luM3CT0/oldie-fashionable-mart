@@ -12,6 +12,7 @@ import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 
 function Product ({ id, item_jpg, name, price, category, rating }) {
+  const [moreInfo, setMoreInfo] = useState(false)
   return (
     <>
       <div
@@ -24,12 +25,11 @@ function Product ({ id, item_jpg, name, price, category, rating }) {
     z-30 
     p-10
     rounded-lg
-    hover:opacity-75
+    hover:opacity-95
     transform
     transition
     duration-300
     ease-in-out
-    cursor-pointer
     space-y-3
     '
       >
@@ -65,7 +65,58 @@ function Product ({ id, item_jpg, name, price, category, rating }) {
         <h3 className='text-purple-300 font-google-sans text-base'>
           $ {price}
         </h3>
+        <Button
+          onClick={e => setMoreInfo(true)}
+          color='purple'
+          size='sm'
+          buttonType='filled'
+          iconOnly={false}
+          block={false}
+          rounded={false}
+          ripple='light'
+        >
+          <h3 className='font-google-sans capitalize text-base'>More info</h3>
+        </Button>
       </div>
+      <Modal
+        size='regular'
+        active={moreInfo}
+        toggler={() => setMoreInfo(false)}
+      >
+        <ModalHeader toggler={() => setMoreInfo(false)}>
+          Modal Title
+        </ModalHeader>
+        <ModalBody>
+          <p className='text-base leading-relaxed text-gray-600 font-normal'>
+            I always felt like I could do anything. That’s the main thing people
+            are controlled by! Thoughts- their perception of themselves! They're
+            slowed down by their perception of themselves. If you're taught you
+            can’t do anything, you won’t do anything. I was taught I could do
+            everything.
+          </p>
+        </ModalBody>
+        <ModalFooter>
+          <Button
+            color='red'
+            buttonType='link'
+            onClick={e => setMoreInfo(false)}
+            ripple='dark'
+            className='capitalize'
+          >
+            Cancel
+          </Button>
+
+          <Button
+            color='green'
+            buttonType='link'
+            onClick={e => setMoreInfo(false)}
+            className='capitalize'
+            ripple='light'
+          >
+            Add
+          </Button>
+        </ModalFooter>
+      </Modal>
     </>
   )
 }

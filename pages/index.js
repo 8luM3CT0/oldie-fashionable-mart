@@ -1,8 +1,8 @@
 //front-end
 import Head from 'next/head'
-import { Header, ProductFeed } from '../components'
+import { Header, ProductFeed, Product, TopItem } from '../components'
 //back-end
-import { featured_json } from '../backend_services/index'
+import { featured_json, top_items } from '../backend_services/index'
 
 export default function Home () {
   console.log(featured_json)
@@ -41,7 +41,7 @@ export default function Home () {
         items-center
         rounded-lg
         space-y-8
-        space-x-4
+        space-x-20
         p-10
         mt-4
         lg:h-[380px]
@@ -51,7 +51,11 @@ export default function Home () {
         scrollbar-hide
         shadow-lg
         '
-        ></div>
+        >
+          {top_items.map(items => (
+            <TopItem key={items.id} id={items.id} item_jpg={items.item_jpg} />
+          ))}
+        </div>
         <h1
           className='
         font-google-sans 

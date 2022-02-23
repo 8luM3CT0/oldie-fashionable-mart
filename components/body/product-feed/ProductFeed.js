@@ -25,13 +25,13 @@ function ProductFeed ({ items }) {
           />
         ))}
       <img
-        src="'https://links.papareact.com/dyz"
+        src="'https://cdn.wallpapersafari.com/3/94/taJoGd.jpg"
         alt=''
         className='md:col-span-full rounded-md'
       />
       <div className='md:col-span-2'>
         {items
-          .slice(5, 6)
+          .slice(4, 5)
           .map(({ id, item_jpg, name, price, category, rating }) => (
             <Product
               key={id}
@@ -44,7 +44,7 @@ function ProductFeed ({ items }) {
           ))}
       </div>
       {items
-        .slice(6, items.length)
+        .slice(5, items.length)
         .map(({ id, item_jpg, name, price, category, rating }) => (
           <Product
             key={id}
