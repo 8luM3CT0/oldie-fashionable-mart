@@ -40,12 +40,11 @@ export default function Home () {
         flex
         items-center
         rounded-lg
-        space-y-8
         space-x-20
-        p-10
+        px-10
         mt-4
-        lg:h-[380px]
-        h-[190px]
+        lg:h-[340px]
+        h-[170px]
         bg-gray-800
         overflow-x-scroll
         scrollbar-hide
