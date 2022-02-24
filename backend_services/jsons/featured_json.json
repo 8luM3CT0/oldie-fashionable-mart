@@ -38,28 +38,28 @@
     "item_jpg": "https://i.pinimg.com/originals/2f/9f/7e/2f9f7e134e1be4d0ffd0706cbf1d2ac5.png",
     "name": "Roman Jessop",
     "price": 39.78,
-    "category": "gaming"
+    "category": "character"
   },
 {
     "id": "1117",
     "item_jpg": "https://i.pinimg.com/originals/2f/9f/7e/2f9f7e134e1be4d0ffd0706cbf1d2ac5.png",
     "name": "Florian Mounty",
     "price": 45.67,
-    "category": "gaming"
+    "category": "character"
   },
 {
     "id": "1118",
     "item_jpg": "https://i.pinimg.com/originals/2f/9f/7e/2f9f7e134e1be4d0ffd0706cbf1d2ac5.png",
     "name": "Josiah Crane",
     "price": 129.34,
-    "category": "gaming"
+    "category": "character"
   },
 {
     "id": "1119",
     "item_jpg": "https://i.pinimg.com/originals/2f/9f/7e/2f9f7e134e1be4d0ffd0706cbf1d2ac5.png",
     "name": "Fisher  Prince",
     "price": 31.9,
-    "category": "gaming"
+    "category": "character"
   
 },
 {
@@ -67,7 +67,7 @@
     "item_jpg": "https://i.pinimg.com/originals/2f/9f/7e/2f9f7e134e1be4d0ffd0706cbf1d2ac5.png",
     "name": "Lanius Arms",
     "price": 78.3,
-    "category": "gaming"
+    "category": "character"
   
 },
 {
@@ -75,28 +75,28 @@
     "item_jpg": "https://i.pinimg.com/originals/2f/9f/7e/2f9f7e134e1be4d0ffd0706cbf1d2ac5.png",
     "name": "Jermain Sten",
     "price": 43.1,
-    "category": "gaming"
+    "category": "character"
   },
 {
     "id": "1122",
     "item_jpg": "https://i.pinimg.com/originals/2f/9f/7e/2f9f7e134e1be4d0ffd0706cbf1d2ac5.png",
     "name": "Absolum Cain",
     "price": 46.1,
-    "category": "gaming"
+    "category": "character"
   },
 {
     "id": "1123",
     "item_jpg": "https://i.pinimg.com/originals/2f/9f/7e/2f9f7e134e1be4d0ffd0706cbf1d2ac5.png",
     "name": "James Bart",
     "price": 40.00,
-    "category": "gaming"
+    "category": "character"
   },
 {
     "id": "1124",
     "item_jpg": "https://i.pinimg.com/originals/2f/9f/7e/2f9f7e134e1be4d0ffd0706cbf1d2ac5.png",
     "name": "Ben Summers",
     "price": 49.00,
-    "category": "gaming"
+    "category": "land"
   
 },
 {
@@ -104,14 +104,14 @@
     "item_jpg": "https://i.pinimg.com/originals/2f/9f/7e/2f9f7e134e1be4d0ffd0706cbf1d2ac5.png",
     "name": "Joe Matria",
     "price": 38.21,
-    "category": "gaming"
+    "category": "land"
   },
 {
     "id": "1126",
     "item_jpg": "https://i.pinimg.com/originals/2f/9f/7e/2f9f7e134e1be4d0ffd0706cbf1d2ac5.png",
     "name": "Bart Flicker",
     "price": 353.32,
-    "category": "gaming"
+    "category": "land"
   
 },
 {
@@ -119,26 +119,26 @@
     "item_jpg": "https://i.pinimg.com/originals/2f/9f/7e/2f9f7e134e1be4d0ffd0706cbf1d2ac5.png",
     "name": "Anthony Liesch",
     "price": 289.76,
-    "category": "gaming"
+    "category": "weapon"
   },
 {
     "id": "1128",
     "item_jpg": "https://i.pinimg.com/originals/2f/9f/7e/2f9f7e134e1be4d0ffd0706cbf1d2ac5.png",
     "name": "Michael Phillips",
     "price": 96.5,
-    "category": "gaming"
+    "category": "weapon"
   },
 {
     "id": "1129",
     "item_jpg": "https://i.pinimg.com/originals/2f/9f/7e/2f9f7e134e1be4d0ffd0706cbf1d2ac5.png",
     "name": "Morris Henley",
     "price": 67.98,
-    "category": "gaming"
+    "category": "weapon"
   },
 {
     "id": "1130",
     "item_jpg": "https://i.pinimg.com/originals/2f/9f/7e/2f9f7e134e1be4d0ffd0706cbf1d2ac5.png",
     "name": "David James",
     "price": 19.33,
-    "category": "gaming"
+    "category": "weapon"
   }]

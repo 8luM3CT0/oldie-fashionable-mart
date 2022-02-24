@@ -65,18 +65,31 @@ function Product ({ id, item_jpg, name, price, category, rating }) {
         <h3 className='text-purple-300 font-google-sans text-base'>
           $ {price}
         </h3>
-        <Button
-          onClick={e => setMoreInfo(true)}
-          color='purple'
-          size='sm'
-          buttonType='filled'
-          iconOnly={false}
-          block={false}
-          rounded={false}
-          ripple='light'
-        >
-          <h3 className='font-google-sans capitalize text-base'>More info</h3>
-        </Button>
+        <div className='flex mx-auto items-center space-x-3'>
+          <Button
+            onClick={e => setMoreInfo(true)}
+            color='purple'
+            size='sm'
+            buttonType='filled'
+            iconOnly={false}
+            block={false}
+            rounded={false}
+            ripple='light'
+          >
+            <h3 className='font-google-sans capitalize text-base'>More info</h3>
+          </Button>
+          <Button
+            color='purple'
+            size='sm'
+            buttonType='filled'
+            iconOnly={true}
+            block={false}
+            rounded={false}
+            ripple='light'
+          >
+            <Icon name='add_shopping_cart' />
+          </Button>
+        </div>
       </div>
       <Modal
         size='regular'
