@@ -13,13 +13,41 @@ import {
 } from '../..'
 
 //back-end
+import firebase from 'firebase'
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
+import { creds, store, provider } from '../../../backend_services/firebase'
+import { useAuthState } from 'react-firebase-hooks/auth'
 
 function Header () {
   const router = useRouter()
+  const [user] = useAuthState(creds)
   const [showSignIn, setShowSignIn] = useState(false)
+  const [showSignOut, setSignOut] = useState(false)
   const [showApps, setShowApps] = useState(false)
+
+  const googleSignIn = () => {
+    creds.signInWithPopup(provider).catch(alert)
+    setShowSignIn(false)
+  }
+
+  useEffect(() => {
+    if (user) {
+      store
+        .collection('users')
+        .doc(user.uid)
+        .set({
+          email: user.email,
+          displayName: user.displayName,
+          photoURL: user.photoURL,
+          timestamp: firebase.firestore.FieldValue.serverTimestamp()
+        })
+    }
+  }, [user])
+
+  const signOut = () => {
+    creds.signOut()
+  }
 
   return (
     <>
@@ -141,20 +169,40 @@ function Header () {
           </Button>
         </div>
         <div className='flex items-center space-x-4'>
-          <Button
-            onClick={e => setShowSignIn(true)}
-            color='purple'
-            buttonType='link'
-            size='regular'
-            iconOnly={false}
-            rounded={false}
-            block={false}
-            ripple='light'
-            className='flex items-center space-x-2 capitalize'
-          >
-            <Icon name='person_add_alt' />
-            <h5 className='signInText'>Sign in</h5>
-          </Button>
+          {user ? (
+            <Button
+              onClick={signOut}
+              color='purple'
+              buttonType='link'
+              size='regular'
+              iconOnly={false}
+              rounded={false}
+              block={false}
+              ripple='light'
+              className='flex items-center space-x-2 capitalize'
+            >
+              <img
+                src={user.photoURL}
+                alt=''
+                className='h-10 w-10 rounded-3xl border-purple-400 border-2'
+              />
+            </Button>
+          ) : (
+            <Button
+              onClick={e => setShowSignIn(true)}
+              color='purple'
+              buttonType='link'
+              size='regular'
+              iconOnly={false}
+              rounded={false}
+              block={false}
+              ripple='light'
+              className='flex items-center space-x-2 capitalize'
+            >
+              <Icon name='person_add_alt' />
+              <h5 className='signInText'>Sign in</h5>
+            </Button>
+          )}
           <Button
             color='purple'
             buttonType='link'
@@ -196,6 +244,7 @@ function Header () {
           '
           >
             <Button
+              onClick={googleSignIn}
               color='green'
               buttonType='filled'
               size='regular'
@@ -208,9 +257,7 @@ function Header () {
               space-x-4'
             >
               <GoogleIcon />
-              <h2 className='text-gray-50 text-base font-normal'>
-                Sign in with Google
-              </h2>
+              <h2 className='text-gray-50 text-base font-normal'>Google</h2>
             </Button>
             <Button
               color='gray'
@@ -225,9 +272,7 @@ function Header () {
               space-x-4'
             >
               <GitHubIcon />
-              <h2 className='text-gray-50 text-base font-normal'>
-                Sign in with GitHub
-              </h2>
+              <h2 className='text-gray-50 text-base font-normal'>GitHub</h2>
             </Button>
             <Button
               color='lightBlue'
@@ -242,9 +287,7 @@ function Header () {
               space-x-4'
             >
               <FacebookIcon />
-              <h2 className='text-gray-50 text-base font-normal'>
-                Sign in with Facebook
-              </h2>
+              <h2 className='text-gray-50 text-base font-normal'>Facebook</h2>
             </Button>
             <Button
               color='blue'
@@ -259,9 +302,7 @@ function Header () {
               space-x-4'
             >
               <TwitterIcon />
-              <h2 className='text-gray-50 text-base font-normal'>
-                Sign in with Twitter
-              </h2>
+              <h2 className='text-gray-50 text-base font-normal'>Twitter</h2>
             </Button>
           </div>
         </ModalBody>
@@ -374,6 +415,29 @@ function Header () {
             Close
           </Button>
         </ModalFooter>
+      </Modal>
+      <Modal
+        active={showSignOut}
+        size='regular'
+        toggler={() => setSignOut(false)}
+      >
+        <ModalHeader toggler={() => setSignOut(false)}>Test modal</ModalHeader>
+        <ModalBody>
+          <div className='grid space-y-4 p-[40px]'>
+            <Button
+              onClick={signOut}
+              color='red'
+              size='regular'
+              buttonType='link'
+              iconOnly={false}
+              block={false}
+              rounded={false}
+              ripple='light'
+            >
+              Sign out
+            </Button>
+          </div>
+        </ModalBody>
       </Modal>
     </>
   )
