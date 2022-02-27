@@ -2,6 +2,7 @@ import { Provider } from 'react-redux'
 import { store } from '../app/store'
 import '../styles/globals.css'
 import '@material-tailwind/react/tailwind.css'
+import { SessionProvider as AuthProvider } from 'next-auth/react'
 import Router from 'next/router'
 
 import ProgressBar from '@badrap/bar-of-progress'
@@ -19,13 +20,15 @@ Router.events.on('routeChangeError', progress.finish)
 
 function MyApp ({ Component, pageProps }) {
   return (
-    <Provider store={store}>
-      <link
-        href='https://fonts.googleapis.com/icon?family=Material+Icons'
-        rel='stylesheet'
-      />
-      <Component {...pageProps} />
-    </Provider>
+    <AuthProvider session={pageProps.session}>
+      <Provider store={store}>
+        <link
+          href='https://fonts.googleapis.com/icon?family=Material+Icons'
+          rel='stylesheet'
+        />
+        <Component {...pageProps} />
+      </Provider>
+    </AuthProvider>
   )
 }
 

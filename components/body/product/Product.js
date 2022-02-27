@@ -9,10 +9,46 @@ import {
 } from '../../index'
 //back-end
 import { useState } from 'react'
+import { creds, store } from '../../../backend_services/firebase'
+import { useAuthState } from 'react-firebase-hooks/auth'
 import { useDispatch } from 'react-redux'
+import { addToBasket } from '../../../backend_services/slices/basketSlice'
+import firebase from 'firebase'
 
-function Product ({ id, item_jpg, name, price, category, rating }) {
+const MAX_STAT = 5
+const MIN_STAT = 1
+
+function Product ({ id, item_jpg, name, price, category }) {
+  const dispatch = useDispatch()
+  const [user] = useAuthState(creds)
+  const [rating] = useState(
+    Math.floor(Math.random() * (MAX_STAT - MIN_STAT + 1)) + MIN_STAT
+  )
   const [moreInfo, setMoreInfo] = useState(false)
+
+  const addToCart = () => {
+    const product = {
+      id,
+      item_jpg,
+      name,
+      price,
+      category
+    }
+    dispatch(addToBasket(product))
+
+    store
+      .collection('userCart')
+      .doc(user.email)
+      .collection('orders')
+      .add(product, {
+        timestamp: firebase.firestore.FieldValue.serverTimestamp()
+      })
+      .then(() => {
+        console.log(
+          `SUCCESS!!! Order ${creds.id} has been added to the database`
+        )
+      })
+  }
   return (
     <>
       <div
@@ -79,6 +115,8 @@ function Product ({ id, item_jpg, name, price, category, rating }) {
             <h3 className='font-google-sans capitalize text-base'>More info</h3>
           </Button>
           <Button
+            disabled={!user}
+            onClick={addToCart}
             color='purple'
             size='sm'
             buttonType='filled'

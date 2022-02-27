@@ -18,11 +18,12 @@ export const cartSlice = createSlice({
       let newCart = [...state.items]
 
       if (index >= 0) {
-        //item is present
+        //item exists
         newCart.splice(index, 1)
       } else {
+        //item does not exist
         console.warn(
-          `Cannot remove product (id: ${action.payload.id}) as it is not in your cart`
+          `Cannot remove product (id: ${action.payload.id}) as it's not in your cart`
         )
       }
       state.items = newCart
@@ -35,6 +36,6 @@ export const { addToCart, removeFromCart } = cartSlice.actions
 export const selectItem = state => state.cart.items
 
 export const itemsTotal = state =>
-  state.basket.items.reduce((total, item) => total + item.price, 0)
+  state.cart.items.reduce((total, item) => total + item.price, 0)
 
 export default cartSlice.reducer

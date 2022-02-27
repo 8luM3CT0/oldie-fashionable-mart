@@ -11,13 +11,14 @@ import {
   FacebookIcon,
   TwitterIcon
 } from '../..'
-
 //back-end
 import firebase from 'firebase'
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { creds, store, provider } from '../../../backend_services/firebase'
 import { useAuthState } from 'react-firebase-hooks/auth'
+import { useSelector } from 'react-redux'
+import { selectItems } from '../../../backend_services/slices/basketSlice'
 
 function Header () {
   const router = useRouter()
@@ -25,6 +26,7 @@ function Header () {
   const [showSignIn, setShowSignIn] = useState(false)
   const [showSignOut, setSignOut] = useState(false)
   const [showApps, setShowApps] = useState(false)
+  const products = useSelector(selectItems)
 
   const googleSignIn = () => {
     creds.signInWithPopup(provider).catch(alert)
@@ -103,7 +105,7 @@ function Header () {
             color='blue'
             size='lg'
             buttonType='link'
-            rouded={false}
+            rounded={false}
             iconOnly={false}
             block={false}
             ripple='light'
@@ -210,7 +212,13 @@ function Header () {
             iconOnly={false}
             rounded={false}
             ripple='light'
-            className='flex relative items-center space-x-2 capitalize'
+            className='
+            flex 
+            py-3 
+            relative 
+            items-center 
+            space-x-2 
+            capitalize'
           >
             <span
               className='
@@ -227,7 +235,7 @@ function Header () {
           font-semibold
           '
             >
-              <h2 className='text-sm'>0</h2>
+              <h2 className='text-sm'>{products.length}</h2>
             </span>
             <Icon name='production_quantity_limits' />
             <h5 className='signInText'>Cart</h5>
