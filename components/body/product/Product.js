@@ -18,7 +18,7 @@ import firebase from 'firebase'
 const MAX_STAT = 5
 const MIN_STAT = 1
 
-function Product ({ id, item_jpg, name, price, category }) {
+function Product ({ id, item_jpg, name, price, category, description }) {
   const dispatch = useDispatch()
   const [user] = useAuthState(creds)
   const [rating] = useState(
@@ -32,7 +32,8 @@ function Product ({ id, item_jpg, name, price, category }) {
       item_jpg,
       name,
       price,
-      category
+      category,
+      description
     }
     dispatch(addToBasket(product))
 
@@ -40,6 +41,8 @@ function Product ({ id, item_jpg, name, price, category }) {
       .collection('userCart')
       .doc(user.email)
       .collection('orders')
+      .doc(id)
+      .collection('orderForTheDay')
       .add(product, {
         timestamp: firebase.firestore.FieldValue.serverTimestamp()
       })
@@ -135,16 +138,47 @@ function Product ({ id, item_jpg, name, price, category }) {
         toggler={() => setMoreInfo(false)}
       >
         <ModalHeader toggler={() => setMoreInfo(false)}>
-          Modal Title
+          Item details
         </ModalHeader>
         <ModalBody>
-          <p className='text-base leading-relaxed text-gray-600 font-normal'>
-            I always felt like I could do anything. That’s the main thing people
-            are controlled by! Thoughts- their perception of themselves! They're
-            slowed down by their perception of themselves. If you're taught you
-            can’t do anything, you won’t do anything. I was taught I could do
-            everything.
-          </p>
+          <div
+            className='
+          p-8
+          grid 
+          space-y-3 
+          place-item-center'
+          >
+            <img
+              src={item_jpg}
+              alt=''
+              className='
+            h-32
+            w-32
+            rounded-xl
+            border
+            border-purple-500
+            '
+            />
+            <h2 className='text-xl font-robot-condensed font-semibold text-blue-500'>
+              {name}
+            </h2>
+            <h3 className='text-lg font-robot-condensed font-normal text-blue-500'>
+              Category: {category}
+            </h3>
+            <p
+              className='
+            w-[320px]
+            text-base 
+            font-robot-condensed 
+            font-light 
+            text-blue-500'
+            >
+              {description}
+            </p>
+            <p className='text-xl font-robot-condensed font-normal text-blue-500 '>
+              $ {price}
+            </p>
+          </div>
         </ModalBody>
         <ModalFooter>
           <Button
@@ -159,8 +193,8 @@ function Product ({ id, item_jpg, name, price, category }) {
 
           <Button
             color='green'
-            buttonType='link'
-            onClick={e => setMoreInfo(false)}
+            buttonType='filled'
+            onClick={addToCart}
             className='capitalize'
             ripple='light'
           >

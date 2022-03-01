@@ -3,7 +3,8 @@
     "item_jpg": "https://i.pinimg.com/originals/2f/9f/7e/2f9f7e134e1be4d0ffd0706cbf1d2ac5.png",
     "name": "Dylan Curtis",
     "price": 20.42,
-    "category": "character"
+    "category": "character",
+    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
   
 },
 {
@@ -11,20 +12,25 @@
     "item_jpg": "https://image.shutterstock.com/image-vector/man-beard-character-avatar-portrait-260nw-1197427666.jpg",
     "name": "Jacob Rain",
     "price": 21.34,
-    "category": "character"
+    "category": "character",
+    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
 },
 {
     "id": "656535345351113",
     "item_jpg": "https://fiverr-res.cloudinary.com/images/t_smartwm/t_main1,q_auto,f_auto,q_auto,f_auto/attachments/delivery/asset/27aee4bc8eee8754167d924fb0245009-1637779535/molinna/create-a-pixel-art-8-bit-avatar-for-you.png",
     "name": "Martin Fierce",
     "price": 18.21,
-    "category": "character"},
+    "category": "character",
+    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+  },
+
 {
     "id": "77865654431114",
     "item_jpg": "https://as2.ftcdn.net/v2/jpg/04/47/62/27/1000_F_447622730_4aM9MuFrdYlAuqPuvQXckZH0M43JWy0g.jpg",
     "name": "Blake Fontaine",
     "price": 17.34,
-    "category": "character"
+    "category": "character",
+    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
 },
 {
     "id": "54343233221115",

@@ -17,7 +17,7 @@ function ProductFeed ({ items }) {
     >
       {items
         .slice(0, 4)
-        .map(({ id, item_jpg, name, price, category, rating }) => (
+        .map(({ id, item_jpg, name, price, category, rating, description }) => (
           <Product
             key={id}
             id={id}
@@ -25,6 +25,7 @@ function ProductFeed ({ items }) {
             category={category}
             item_jpg={item_jpg}
             price={price}
+            description={description}
           />
         ))}
       <img
@@ -39,20 +40,23 @@ function ProductFeed ({ items }) {
       <div className='md:col-span-2'>
         {items
           .slice(4, 5)
-          .map(({ id, item_jpg, name, price, category, rating }) => (
-            <Product
-              key={id}
-              id={id}
-              name={name}
-              category={category}
-              item_jpg={item_jpg}
-              price={price}
-            />
-          ))}
+          .map(
+            ({ id, item_jpg, name, price, category, rating, description }) => (
+              <Product
+                key={id}
+                id={id}
+                name={name}
+                category={category}
+                item_jpg={item_jpg}
+                price={price}
+                description={description}
+              />
+            )
+          )}
       </div>
       {items
         .slice(5, 7)
-        .map(({ id, item_jpg, name, price, category, rating }) => (
+        .map(({ id, item_jpg, name, price, category, rating, description }) => (
           <Product
             key={id}
             id={id}
@@ -60,6 +64,7 @@ function ProductFeed ({ items }) {
             category={category}
             item_jpg={item_jpg}
             price={price}
+            description={description}
           />
         ))}
       <img
@@ -74,7 +79,7 @@ function ProductFeed ({ items }) {
 
       {items
         .slice(7, items.length)
-        .map(({ id, item_jpg, name, price, category, rating }) => (
+        .map(({ id, item_jpg, name, price, category, rating, description }) => (
           <Product
             key={id}
             id={id}
@@ -82,6 +87,7 @@ function ProductFeed ({ items }) {
             category={category}
             item_jpg={item_jpg}
             price={price}
+            description={description}
           />
         ))}
     </div>

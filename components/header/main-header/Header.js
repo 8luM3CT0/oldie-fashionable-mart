@@ -206,6 +206,8 @@ function Header () {
             </Button>
           )}
           <Button
+            disabled={!user}
+            onClick={() => router.push('/orders')}
             color='purple'
             buttonType='link'
             size='regular'
