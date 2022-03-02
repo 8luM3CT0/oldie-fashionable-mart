@@ -43,7 +43,14 @@ function Product ({ id, item_jpg, name, price, category, description }) {
       .collection('orders')
       .doc(id)
       .collection('orderForTheDay')
-      .add(product, {
+      .doc(id)
+      .set({
+        item_id: id,
+        item_image: item_jpg,
+        item_name: name,
+        item_price: price,
+        item_category: category,
+        item_description: description,
         timestamp: firebase.firestore.FieldValue.serverTimestamp()
       })
       .then(() => {

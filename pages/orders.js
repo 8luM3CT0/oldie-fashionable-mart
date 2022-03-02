@@ -1,7 +1,11 @@
 //front-end
 import { OrderHeader } from '../components/index'
 //back-end
+import { useAuthState } from 'react-firebase-hooks/auth'
+import { creds, store, provider } from '../backend_services/firebase'
 function orders () {
+  const [user] = useAuthState(creds)
+
   return (
     <div
       className='

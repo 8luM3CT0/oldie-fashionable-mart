@@ -1,11 +1,11 @@
 //front-end
 import Head from 'next/head'
-import { Header, ProductFeed, Product, TopItem } from '../components'
+import { Header, HomeFeed, StocksFeed } from '../components'
 //back-end
-import { featured_json, top_items } from '../backend_services/index'
+import { featured_json, stocks } from '../backend_services/index'
 
-export default function Home () {
-  console.log(featured_json)
+export default function Home ({ test_data }) {
+  console.log(test_data)
 
   return (
     <div
@@ -31,50 +31,21 @@ export default function Home () {
 
       '
       >
-        <div
-          className='
-        mx-auto
-        lg:max-w-3xl
-        max-w-xl
-        flex-grow
-        flex
-        items-center
-        rounded-lg
-        space-x-20
-        px-10
-        mt-4
-        lg:h-[340px]
-        h-[170px]
-        bg-gray-800
-        overflow-x-scroll
-        scrollbar-hide
-        shadow-lg
-        '
-        >
-          {top_items.map(items => (
-            <TopItem
-              key={items.id}
-              id={items.id}
-              item_jpg={items.item_jpg}
-              category={items.category}
-            />
-          ))}
-        </div>
-        <h1
-          className='
-        font-google-sans 
-        mx-auto 
-        max-w-xl 
-        font-normal 
-        text-red-400 
-        text-xl
-        py-4
-        '
-        >
-          Top selling items
-        </h1>
-        <ProductFeed items={featured_json} />
+        <HomeFeed items={featured_json} />
+        <StocksFeed forex={stocks} />
       </main>
     </div>
   )
+}
+
+export async function getServerSideProps () {
+  const appleQuote = await fetch(
+    'https://yfapi.net/v6/finance/quote?region=US&lang=en&symbols=AAPL'
+  ).then(res => res.json())
+
+  return {
+    props: {
+      test_data: appleQuote
+    }
+  }
 }
