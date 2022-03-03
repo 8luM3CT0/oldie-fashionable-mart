@@ -103,6 +103,26 @@ function StockQuote ({
             </h2>
           </div>
         </ModalBody>
+        <ModalFooter>
+          <Button
+            color='red'
+            buttonType='link'
+            size='regular'
+            onClick={e => setShowMore(false)}
+            ripple='light'
+          >
+            <p className='capitalize font-google-sans'>Close</p>
+          </Button>
+          <Button
+            color='green'
+            buttonType='link'
+            size='regular'
+            onClick={e => setShowMore(false)}
+            ripple='light'
+          >
+            <p className='capitalize font-google-sans'>Buy</p>
+          </Button>
+        </ModalFooter>
       </Modal>
     </>
   )

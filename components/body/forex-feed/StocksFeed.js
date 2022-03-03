@@ -121,6 +121,52 @@ function StocksFeed ({ forex }) {
               )
             )}
         </div>
+        {forex
+          .slice(5, 7)
+          .map(
+            ({
+              symbol,
+              name,
+              price,
+              change,
+              changePercentage,
+              dayLow,
+              dayHigh,
+              yearHigh,
+              yearLow,
+              marketCap,
+              priceAvg50,
+              priceAvg200,
+              volume,
+              avgVolume,
+              open,
+              previousClose,
+              eps,
+              pe
+            }) => (
+              <StockQuote
+                key={symbol}
+                symbol={symbol}
+                name={name}
+                price={price}
+                change={change}
+                changePercentage={changePercentage}
+                dayLow={dayLow}
+                dayHigh={dayHigh}
+                yearHigh={yearHigh}
+                yearLow={yearLow}
+                marketCap={marketCap}
+                priceAvg50={priceAvg50}
+                priceAvg200={priceAvg200}
+                volume={volume}
+                avgVolume={avgVolume}
+                open={open}
+                previousClose={previousClose}
+                eps={eps}
+                pe={pe}
+              />
+            )
+          )}
       </div>
     </>
   )
