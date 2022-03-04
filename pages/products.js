@@ -1,11 +1,14 @@
 //front-end
 import Head from 'next/head'
 import { Header, ProductFeed, ProductHeader, TopItem } from '../components'
+import { creds, auth, provider } from '../backend_services/firebase'
 //back-end
 import { featured_json, top_items } from '../backend_services/index'
+import { useAuthState } from 'react-firebase-hooks/auth'
 
 function products () {
   console.log(featured_json)
+  const [user] = useAuthState(creds)
 
   return (
     <div
