@@ -168,7 +168,7 @@ function Header () {
               className='flex items-center space-x-2 capitalize'
             >
               <img
-                src={user.photoURL}
+                src={user?.photoURL}
                 alt=''
                 className='h-10 w-10 rounded-3xl border-purple-400 border-2'
               />
