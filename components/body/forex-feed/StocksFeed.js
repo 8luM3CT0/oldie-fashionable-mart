@@ -48,7 +48,8 @@ function StocksFeed ({ forex }) {
               open,
               previousClose,
               eps,
-              pe
+              pe,
+              category
             }) => (
               <StockQuote
                 key={symbol}
@@ -70,6 +71,7 @@ function StocksFeed ({ forex }) {
                 previousClose={previousClose}
                 eps={eps}
                 pe={pe}
+                category={category}
               />
             )
           )}
@@ -95,7 +97,8 @@ function StocksFeed ({ forex }) {
                 open,
                 previousClose,
                 eps,
-                pe
+                pe,
+                category
               }) => (
                 <StockQuote
                   key={symbol}
@@ -117,6 +120,7 @@ function StocksFeed ({ forex }) {
                   previousClose={previousClose}
                   eps={eps}
                   pe={pe}
+                  category={category}
                 />
               )
             )}
@@ -142,7 +146,8 @@ function StocksFeed ({ forex }) {
               open,
               previousClose,
               eps,
-              pe
+              pe,
+              category
             }) => (
               <StockQuote
                 key={symbol}
@@ -164,6 +169,7 @@ function StocksFeed ({ forex }) {
                 previousClose={previousClose}
                 eps={eps}
                 pe={pe}
+                category={category}
               />
             )
           )}

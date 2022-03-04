@@ -130,40 +130,23 @@ function Header () {
           </Button>
         </div>
         <div className='flex items-center space-x-4'>
-          {user ? (
-            <Button
-              onClick={signOut}
-              color='purple'
-              buttonType='link'
-              size='regular'
-              iconOnly={false}
-              rounded={false}
-              block={false}
-              ripple='light'
-              className='flex items-center space-x-2 capitalize'
-            >
-              <img
-                src={user.photoURL}
-                alt=''
-                className='h-10 w-10 rounded-3xl border-purple-400 border-2'
-              />
-            </Button>
-          ) : (
-            <Button
-              onClick={e => setShowSignIn(true)}
-              color='purple'
-              buttonType='link'
-              size='regular'
-              iconOnly={false}
-              rounded={false}
-              block={false}
-              ripple='light'
-              className='flex items-center space-x-2 capitalize'
-            >
-              <Icon name='person_add_alt' />
-              <h5 className='signInText'>Sign in</h5>
-            </Button>
-          )}
+          <Button
+            color='purple'
+            buttonType='link'
+            size='regular'
+            iconOnly={false}
+            rounded={false}
+            block={false}
+            ripple='light'
+            className='flex items-center space-x-2 capitalize'
+          >
+            <img
+              src={user.photoURL}
+              alt=''
+              className='h-10 w-10 rounded-3xl border-purple-400 border-2'
+            />
+          </Button>
+
           <Button
             disabled={!user}
             onClick={() => router.push('/orders')}

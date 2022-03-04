@@ -20,7 +20,8 @@
     "pe" : 28.68661900,
     "earningsAnnouncement" : "2022-04-26T20:00:00.000+0000",
     "sharesOutstanding" : 16319400608,
-    "timestamp" : 1645067606  
+    "timestamp" : 1645067606,
+    "category": "tech"  
 },
 {
     "symbol" : "TSLA",
@@ -44,7 +45,8 @@
     "pe" : 178.81044000,
     "earningsAnnouncement" : "2022-04-25T20:00:00.000+0000",
     "sharesOutstanding" : 1033510011,
-    "timestamp" : 1645143982
+    "timestamp" : 1645143982,
+    "category": "automotive"
   },
   {
     "symbol" : "AMZN",
@@ -68,7 +70,8 @@
     "pe" : 47.72489000,
     "earningsAnnouncement" : "2022-04-27T20:00:00.000+0000",
     "sharesOutstanding" : 508844002,
-    "timestamp" : 1645144010
+    "timestamp" : 1645144010,
+    "category": "commerce"
   },
   {
     "symbol" : "MSFT",
@@ -92,7 +95,8 @@
     "pe" : 30.96496000,
     "earningsAnnouncement" : "2022-04-25T10:59:00.000+0000",
     "sharesOutstanding" : 7496870267,
-    "timestamp" : 1645144034
+    "timestamp" : 1645144034,
+    "category": "tech"
   },
   {
     "symbol" : "IBM",
@@ -116,7 +120,8 @@
     "pe" : 19.68341400,
     "earningsAnnouncement" : "2022-04-19T20:00:00.000+0000",
     "sharesOutstanding" : 896320040,
-    "timestamp" : 1645144056
+    "timestamp" : 1645144056,
+    "category": "tech"
   },
   {
     "symbol" : "HD",
@@ -140,11 +145,12 @@
     "pe" : 23.26579900,
     "earningsAnnouncement" : "2022-02-22T13:30:00.000+0000",
     "sharesOutstanding" : 1044239990,
-    "timestamp" : 1645144083
+    "timestamp" : 1645144083,
+    "category": "retailer"
   },
   {
     "symbol" : "CRM",
-    "name" : "salesforce.com, inc.",
+    "name" : "Salesforce.com, inc.",
     "price" : 200.03000000,
     "changesPercentage" : -5.53037000,
     "change" : -11.71000700,
@@ -164,7 +170,8 @@
     "pe" : 110.02750400,
     "earningsAnnouncement" : "2022-03-01T21:00:00.000+0000",
     "sharesOutstanding" : 984999970,
-    "timestamp" : 1645144165
+    "timestamp" : 1645144165,
+    "category": "tech"
   },
   {
     "symbol" : "FB",
@@ -188,7 +195,8 @@
     "pe" : 15.08424100,
     "earningsAnnouncement" : "2022-04-26T10:59:00.000+0000",
     "sharesOutstanding" : 2721939997,
-    "timestamp" : 1645144190
+    "timestamp" : 1645144190,
+    "category": "tech"
   },
   {
     "symbol" : "EVRI",
@@ -212,7 +220,8 @@
     "pe" : 34.95509000,
     "earningsAnnouncement" : "2022-03-01T13:30:00.000+0000",
     "sharesOutstanding" : 90978601,
-    "timestamp" : 1645144212
+    "timestamp" : 1645144212,
+    "category": "gaming"
   },
   {
     "symbol" : "MCD",
@@ -236,7 +245,8 @@
     "pe" : 25.00298900,
     "earningsAnnouncement" : "2022-04-27T12:30:00.000+0000",
     "sharesOutstanding" : 747244969,
-    "timestamp" : 1645144257
+    "timestamp" : 1645144257,
+    "category": "food"
   },
   {
     "symbol" : "SPOT",
@@ -260,7 +270,8 @@
     "pe" : null,
     "earningsAnnouncement" : "2022-04-26T12:30:00.000+0000",
     "sharesOutstanding" : 192151999,
-    "timestamp" : 1645144360
+    "timestamp" : 1645144360,
+    "category": "tech"
   },
   {
     "symbol" : "VZ",
@@ -284,7 +295,8 @@
     "pe" : 10.07332300,
     "earningsAnnouncement" : "2022-04-22T12:30:00.000+0000",
     "sharesOutstanding" : 4197819924,
-    "timestamp" : 1645144388
+    "timestamp" : 1645144388,
+    "category": "telecommunications"
   },
   {
     "symbol" : "TMUS",
@@ -308,7 +320,8 @@
     "pe" : 51.68049600,
     "earningsAnnouncement" : "2022-05-02T10:59:00.000+0000",
     "sharesOutstanding" : 1249290063,
-    "timestamp" : 1645144454
+    "timestamp" : 1645144454,
+    "category": "telecommunications"
   },
   {
     "symbol" : "SBUX",
@@ -332,7 +345,8 @@
     "pe" : 25.14185500,
     "earningsAnnouncement" : "2022-05-03T10:59:00.000+0000",
     "sharesOutstanding" : 1150300039,
-    "timestamp" : 1645144475
+    "timestamp" : 1645144475,
+    "category": "food"
   },
   {
     "symbol" : "MMM",
@@ -356,7 +370,8 @@
     "pe" : 14.68774700,
     "earningsAnnouncement" : "2022-04-25T12:30:00.000+0000",
     "sharesOutstanding" : 571100011,
-    "timestamp" : 1645144499
+    "timestamp" : 1645144499,
+    "category": "conglomerate"
   },
   {
     "symbol" : "NVO",
@@ -380,7 +395,8 @@
     "pe" : 32.39013300,
     "earningsAnnouncement" : null,
     "sharesOutstanding" : 2277339858,
-    "timestamp" : 1645144531
+    "timestamp" : 1645144531,
+    "category": "pharmaceutical"
   },
   {
     "symbol" : "NKE",
@@ -404,7 +420,8 @@
     "pe" : 37.48031600,
     "earningsAnnouncement" : "2022-03-16T10:59:00.000+0000",
     "sharesOutstanding" : 1581300039,
-    "timestamp" : 1645145759
+    "timestamp" : 1645145759,
+    "category": "retail"
   },
   {
     "symbol" : "HON",
@@ -428,5 +445,6 @@
     "pe" : 23.33628300,
     "earningsAnnouncement" : "2022-04-21T12:30:00.000+0000",
     "sharesOutstanding" : 685818982,
-    "timestamp" : 1645145785
+    "timestamp" : 1645145785,
+    "category": "tech"
   }]

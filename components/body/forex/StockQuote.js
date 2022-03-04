@@ -28,7 +28,8 @@ function StockQuote ({
   open,
   previousClose,
   eps,
-  pe
+  pe,
+  category
 }) {
   const [showMore, setShowMore] = useState(false)
 
@@ -53,7 +54,21 @@ function StockQuote ({
     cursor-pointer
     '
       >
-        <h2 className='text-xl font-google-sans font-semibold'>{symbol}</h2>
+        <p
+          className='
+    absolute
+    top-2
+    right-2
+    text-xs
+    italic
+    text-blue-300
+    '
+        >
+          {category}
+        </p>
+        <h2 className='text-xl font-google-sans italic font-semibold'>
+          {symbol}
+        </h2>
         <h3 className='text-lg font-google-sans font-normal'>{name}</h3>
         <h1 className='text-2xl font-google-sans font-bold'>{price}</h1>
       </div>

@@ -1,6 +1,6 @@
 //front-end
 import Head from 'next/head'
-import { Header, ProductFeed, Product, TopItem } from '../components'
+import { Header, ProductFeed, ProductHeader, TopItem } from '../components'
 //back-end
 import { featured_json, top_items } from '../backend_services/index'
 
@@ -25,7 +25,7 @@ function products () {
         />
       </Head>
 
-      <Header />
+      <ProductHeader />
       <main
         className='homeMain
   
