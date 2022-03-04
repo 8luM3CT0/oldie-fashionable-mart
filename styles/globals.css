@@ -77,4 +77,24 @@
     group-hover:inline-flex
     group-hover:opacity-100
   }
+
+  .stockQuoteCSS{
+    @apply
+    grid
+    p-10
+    text-blue-400
+    bg-gradient-to-b
+    from-gray-600
+    to-gray-800
+    rounded-xl
+    transform
+    transition
+    hover:scale-105
+    mx-5
+    my-3
+    space-y-5
+    ease-in-out
+    duration-200
+    cursor-pointer
+  }
 }

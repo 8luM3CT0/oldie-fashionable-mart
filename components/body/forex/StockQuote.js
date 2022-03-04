@@ -35,25 +35,7 @@ function StockQuote ({
 
   return (
     <>
-      <div
-        onClick={e => setShowMore(true)}
-        className='
-    grid
-    p-10
-    text-blue-400
-    bg-gray-600
-    rounded-xl
-    transform
-    transition
-    hover:scale-105
-    mx-5
-    my-3
-    space-y-5
-    ease-in-out
-    duration-200
-    cursor-pointer
-    '
-      >
+      <div onClick={e => setShowMore(true)} className='stockQuoteCSS'>
         <p
           className='
     absolute
