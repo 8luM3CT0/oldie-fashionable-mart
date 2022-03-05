@@ -43,12 +43,12 @@ function products () {
           flex
           items-center
           rounded-lg
-          space-x-20
+          space-x-48
           px-10
           mt-4
           lg:h-[340px]
           h-[170px]
-          bg-gray-800
+          bg-[#374151]
           overflow-x-scroll
           scrollbar-hide
           shadow-lg
@@ -60,6 +60,8 @@ function products () {
               id={items.id}
               item_jpg={items.item_jpg}
               category={items.category}
+              name={items.name}
+              price={items.price}
             />
           ))}
         </div>

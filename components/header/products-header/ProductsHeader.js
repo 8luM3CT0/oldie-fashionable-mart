@@ -126,7 +126,7 @@ function Header () {
           font-normal'
           >
             <Icon name='price_change' />
-            <h2 className='text-lg capitalize'>Forex</h2>
+            <h2 className='text-lg capitalize'>Stocks</h2>
           </Button>
         </div>
         <div className='flex items-center space-x-4'>
@@ -270,7 +270,7 @@ function Header () {
           space-x-4'
             >
               <Icon name='price_change' />
-              <h2 className='text-lg capitalize'>Forex</h2>
+              <h2 className='text-lg capitalize'>Stocks</h2>
             </Button>
           </div>
         </ModalBody>

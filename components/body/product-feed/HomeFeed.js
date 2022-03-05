@@ -22,7 +22,10 @@ function HomeFeed ({ items }) {
         md:col-span-full 
         rounded-md  
         mx-auto 
-        p-8'
+        p-8
+        -mt-60
+        opacity-80
+        '
       />
       {items
         .slice(0, 4)

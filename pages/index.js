@@ -5,8 +5,6 @@ import { Header, HomeFeed, StocksFeed } from '../components'
 import { featured_json, stocks } from '../backend_services/index'
 
 export default function Home ({ test_data }) {
-  console.log(test_data)
-
   return (
     <div
       className='
@@ -36,16 +34,4 @@ export default function Home ({ test_data }) {
       </main>
     </div>
   )
-}
-
-export async function getServerSideProps () {
-  const appleQuote = await fetch(
-    'https://yfapi.net/v6/finance/quote?region=US&lang=en&symbols=AAPL'
-  ).then(res => res.json())
-
-  return {
-    props: {
-      test_data: appleQuote
-    }
-  }
 }

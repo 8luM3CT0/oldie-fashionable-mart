@@ -151,13 +151,13 @@ function Header () {
         font-normal'
           >
             <Icon name='price_change' />
-            <h2 className='text-lg capitalize'>Forex</h2>
+            <h2 className='text-lg capitalize'>Stocks</h2>
           </Button>
         </div>
         <div className='flex items-center space-x-4'>
           {user ? (
             <Button
-              onClick={signOut}
+              onClick={e => setSignOut(true)}
               color='purple'
               buttonType='link'
               size='regular'
@@ -396,7 +396,7 @@ function Header () {
         space-x-4'
             >
               <Icon name='price_change' />
-              <h2 className='text-lg capitalize'>Forex</h2>
+              <h2 className='text-lg capitalize'>Stocks</h2>
             </Button>
           </div>
         </ModalBody>
@@ -416,9 +416,24 @@ function Header () {
         size='regular'
         toggler={() => setSignOut(false)}
       >
-        <ModalHeader toggler={() => setSignOut(false)}>Test modal</ModalHeader>
+        <ModalHeader toggler={() => setSignOut(false)}>
+          User details
+        </ModalHeader>
         <ModalBody>
-          <div className='grid space-y-4 p-[40px]'>
+          <div className='grid place-items-center space-y-4 p-[40px]'>
+            <img
+              src={user?.photoURL}
+              alt=''
+              className='
+              h-20 
+              w-20 
+              rounded-full 
+              border-2 
+              border-purple-400'
+            />
+            <h2 className='text-xl font-google-sans font-semibold text-purple-500'>
+              {user?.displayName}
+            </h2>
             <Button
               onClick={signOut}
               color='red'
@@ -428,6 +443,7 @@ function Header () {
               block={false}
               rounded={false}
               ripple='light'
+              className='capitalize'
             >
               Sign out
             </Button>
