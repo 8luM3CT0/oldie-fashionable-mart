@@ -15,7 +15,7 @@ function StocksFeed ({ forex }) {
     px-7
     '
       >
-        Stocks
+        Featured stocks
       </h1>
       <div
         className='
@@ -29,104 +29,6 @@ function StocksFeed ({ forex }) {
       >
         {forex
           .slice(0, 4)
-          .map(
-            ({
-              symbol,
-              name,
-              price,
-              change,
-              changePercentage,
-              dayLow,
-              dayHigh,
-              yearHigh,
-              yearLow,
-              marketCap,
-              priceAvg50,
-              priceAvg200,
-              volume,
-              avgVolume,
-              open,
-              previousClose,
-              eps,
-              pe,
-              category
-            }) => (
-              <StockQuote
-                key={symbol}
-                symbol={symbol}
-                name={name}
-                price={price}
-                change={change}
-                changePercentage={changePercentage}
-                dayLow={dayLow}
-                dayHigh={dayHigh}
-                yearHigh={yearHigh}
-                yearLow={yearLow}
-                marketCap={marketCap}
-                priceAvg50={priceAvg50}
-                priceAvg200={priceAvg200}
-                volume={volume}
-                avgVolume={avgVolume}
-                open={open}
-                previousClose={previousClose}
-                eps={eps}
-                pe={pe}
-                category={category}
-              />
-            )
-          )}
-        <div className='md:col-span-2'>
-          {forex
-            .slice(4, 5)
-            .map(
-              ({
-                symbol,
-                name,
-                price,
-                change,
-                changePercentage,
-                dayLow,
-                dayHigh,
-                yearHigh,
-                yearLow,
-                marketCap,
-                priceAvg50,
-                priceAvg200,
-                volume,
-                avgVolume,
-                open,
-                previousClose,
-                eps,
-                pe,
-                category
-              }) => (
-                <StockQuote
-                  key={symbol}
-                  symbol={symbol}
-                  name={name}
-                  price={price}
-                  change={change}
-                  changePercentage={changePercentage}
-                  dayLow={dayLow}
-                  dayHigh={dayHigh}
-                  yearHigh={yearHigh}
-                  yearLow={yearLow}
-                  marketCap={marketCap}
-                  priceAvg50={priceAvg50}
-                  priceAvg200={priceAvg200}
-                  volume={volume}
-                  avgVolume={avgVolume}
-                  open={open}
-                  previousClose={previousClose}
-                  eps={eps}
-                  pe={pe}
-                  category={category}
-                />
-              )
-            )}
-        </div>
-        {forex
-          .slice(5, 7)
           .map(
             ({
               symbol,
