@@ -196,6 +196,7 @@ function Header () {
           '
           >
             <Button
+              onClick={() => router.push('/')}
               color='blue'
               size='lg'
               buttonType='link'
@@ -214,25 +215,6 @@ function Header () {
             >
               <Icon name='home' />
               <h2 className='text-lg capitalize'>Home</h2>
-            </Button>
-            <Button
-              color='blue'
-              size='lg'
-              buttonType='link'
-              rouded={false}
-              iconOnly={false}
-              block={false}
-              ripple='light'
-              className='
-                cursor-pointer
-          justify-evenly 
-          flex
-          items-center
-          font-normal
-          space-x-4'
-            >
-              <Icon name='category' />
-              <h2 className='text-lg capitalize'>Products</h2>
             </Button>
             <Button
               color='blue'

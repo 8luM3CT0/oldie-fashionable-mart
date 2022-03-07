@@ -97,4 +97,15 @@
     duration-200
     cursor-pointer
   }
+
+  .stockQuoteTitle{
+    @apply
+    text-base
+            lg:text-xl 
+            space-x-4 
+            flex
+            items-center 
+            text-blue-600 
+            font-semibold
+  }
 }

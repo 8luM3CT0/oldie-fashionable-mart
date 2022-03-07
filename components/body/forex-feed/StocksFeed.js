@@ -35,7 +35,7 @@ function StocksFeed ({ forex }) {
               name,
               price,
               change,
-              changePercentage,
+              changesPercentage,
               dayLow,
               dayHigh,
               yearHigh,
@@ -57,7 +57,7 @@ function StocksFeed ({ forex }) {
                 name={name}
                 price={price}
                 change={change}
-                changePercentage={changePercentage}
+                changePercentage={changesPercentage}
                 dayLow={dayLow}
                 dayHigh={dayHigh}
                 yearHigh={yearHigh}

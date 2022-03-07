@@ -321,26 +321,6 @@ function Header () {
         '
           >
             <Button
-              color='blue'
-              size='lg'
-              buttonType='link'
-              rouded={false}
-              iconOnly={false}
-              block={false}
-              ripple='light'
-              className='
-        cursor-pointer
-        justify-evenly 
-        flex
-        items-center
-        font-normal
-        space-x-4
-        '
-            >
-              <Icon name='home' />
-              <h2 className='text-lg capitalize'>Home</h2>
-            </Button>
-            <Button
               onClick={() => router.push('/products')}
               color='blue'
               size='lg'

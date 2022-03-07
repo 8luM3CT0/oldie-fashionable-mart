@@ -80,12 +80,7 @@ function StockQuote ({
           >
             <h1
               className='
-            text-xl 
-            space-x-4 
-            flex
-            items-center 
-            text-blue-600 
-            font-semibold'
+            stockQuoteTitle'
             >
               {symbol} - {name}
             </h1>
@@ -98,6 +93,40 @@ function StockQuote ({
             >
               Current price: {price}
             </h2>
+            <h2
+              className='
+            text-xl 
+            font-google-sans 
+            font-normal 
+            text-blue-500 
+            mx-auto
+            '
+            >
+              Changes
+            </h2>
+            <h3 className='text-lg font-semibold text-red-500'>
+              Change: {change}
+            </h3>
+            <h3 className='text-lg font-semibold text-red-600'>
+              Change percentage: {changePercentage}
+            </h3>
+            <h2
+              className='
+            text-xl 
+            font-google-sans 
+            font-normal 
+            text-blue-500 
+            mx-auto
+            '
+            >
+              Day prices
+            </h2>
+            <h3 className='text-lg font-semibold text-blue-400'>
+              Day low: {dayLow}
+            </h3>
+            <h3 className='text-lg font-semibold text-blue-600'>
+              Day high: {dayHigh}
+            </h3>
           </div>
         </ModalBody>
         <ModalFooter>
