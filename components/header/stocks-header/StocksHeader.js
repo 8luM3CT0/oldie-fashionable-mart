@@ -17,31 +17,28 @@ import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { creds, store, provider } from '../../../backend_services/firebase'
 import { useAuthState } from 'react-firebase-hooks/auth'
-import { useSelector } from 'react-redux'
-import { selectItems } from '../../../backend_services/slices/basketSlice'
 
-function Header () {
+function StocksHeader () {
   const router = useRouter()
   const [user] = useAuthState(creds)
   const [showApps, setShowApps] = useState(false)
-  const products = useSelector(selectItems)
 
   return (
     <>
       <header
         className='
-      top-0 
-      z-50 
-      sticky
-      bg-stone-900
-      flex
-      items-center
-      justify-evenly
-      space-x-8
-      flex-grow
-      px-7
-      py-3
-      '
+    top-0 
+    z-50 
+    sticky
+    bg-stone-900
+    flex
+    items-center
+    justify-evenly
+    space-x-8
+    flex-grow
+    px-7
+    py-3
+    '
       >
         <div className='flex items-center space-x-3'>
           <Button
@@ -59,20 +56,20 @@ function Header () {
           </Button>
           <div
             className='
-          flex 
-          items-center 
-          space-x-3 
-          cursor-pointer 
-          hover:underline 
-          hover:animate-pulse
-          transform
-          transition
-          duration-300
-          ease-in-out
-          '
+        flex 
+        items-center 
+        space-x-3 
+        cursor-pointer 
+        hover:underline 
+        hover:animate-pulse
+        transform
+        transition
+        duration-300
+        ease-in-out
+        '
           >
-            <Icon name='smart_toy' color='red' />
-            <h2 className='appName'>RetroMart</h2>
+            <Icon name='price_change' color='red' />
+            <h2 className='appName'>Stocks</h2>
           </div>
         </div>
         <div className='headerRouters'>
@@ -81,20 +78,21 @@ function Header () {
             color='blue'
             size='lg'
             buttonType='link'
-            rounded={false}
+            rouded={false}
             iconOnly={false}
             block={false}
             ripple='light'
             className='
-          cursor-pointer 
-          grid 
-          place-items-center
-          font-normal'
+        cursor-pointer 
+        grid 
+        place-items-center
+        font-normal'
           >
             <Icon name='home' />
             <h2 className='text-lg capitalize'>Home</h2>
           </Button>
           <Button
+            onClick={() => router.push('/products')}
             color='blue'
             size='lg'
             buttonType='link'
@@ -103,87 +101,65 @@ function Header () {
             block={false}
             ripple='light'
             className='
-          cursor-pointer 
-          grid 
-          place-items-center
-          font-normal'
+        cursor-pointer 
+        grid 
+        place-items-center
+        font-normal'
+          >
+            <Icon name='category' />
+            <h2 className='text-lg capitalize'>Products</h2>
+          </Button>
+          <Button
+            color='blue'
+            size='lg'
+            buttonType='link'
+            rouded={false}
+            iconOnly={false}
+            block={false}
+            ripple='light'
+            className='
+        cursor-pointer 
+        grid 
+        place-items-center
+        font-normal'
           >
             <Icon name='info' />
             <h2 className='text-lg capitalize'>About</h2>
           </Button>
-          <Button
-            color='blue'
-            size='lg'
-            buttonType='link'
-            rouded={false}
-            iconOnly={false}
-            block={false}
-            ripple='light'
-            className='
-          cursor-pointer 
-          grid 
-          place-items-center
-          font-normal'
-          >
-            <Icon name='price_change' />
-            <h2 className='text-lg capitalize'>Stocks</h2>
-          </Button>
         </div>
         <div className='flex items-center space-x-4'>
-          <Button
-            color='purple'
-            buttonType='link'
-            size='regular'
-            iconOnly={false}
-            rounded={false}
-            block={false}
-            ripple='light'
-            className='flex items-center space-x-2 capitalize'
-          >
-            <img
-              src={user?.photoURL}
-              alt=''
-              className='h-10 w-10 rounded-3xl border-purple-400 border-2'
-            />
-          </Button>
-
-          <Button
-            disabled={!user}
-            onClick={() => router.push('/orders')}
-            color='purple'
-            buttonType='link'
-            size='regular'
-            iconOnly={false}
-            rounded={false}
-            ripple='light'
-            className='
-              flex 
-              py-3 
-              relative 
-              items-center 
-              space-x-2 
-              capitalize'
-          >
-            <span
-              className='
-            absolute 
-            top-0 
-            right-10 
-            h-4
-            w-4
-            mr-2
-            bg-purple-700
-            text-center
-            rounded-3xl
-            text-purple-50
-            font-semibold
-            '
+          {user ? (
+            <Button
+              color='purple'
+              buttonType='link'
+              size='regular'
+              iconOnly={false}
+              rounded={false}
+              block={false}
+              ripple='light'
+              className='flex items-center space-x-2 capitalize'
             >
-              <h2 className='text-sm'>{products.length}</h2>
-            </span>
-            <Icon name='production_quantity_limits' />
-            <h5 className='signInText'>Cart</h5>
-          </Button>
+              <img
+                src={user?.photoURL}
+                alt=''
+                className='h-10 w-10 rounded-3xl border-purple-400 border-2'
+              />
+            </Button>
+          ) : (
+            <Button
+              color='purple'
+              buttonType='link'
+              size='regular'
+              iconOnly={false}
+              rounded={false}
+              block={false}
+              ripple='light'
+              className='flex items-center space-x-2 capitalize'
+            >
+              <Icon name='person_add_alt' />
+              <h5 className='signInText'>Sign in</h5>
+            </Button>
+          )}
         </div>
       </header>
       <Modal size='lg' active={showApps} toggler={() => setShowApps(false)}>
@@ -191,9 +167,9 @@ function Header () {
         <ModalBody>
           <div
             className='
-          space-y-5
-          p-8
-          '
+        space-y-5
+        p-8
+        '
           >
             <Button
               onClick={() => router.push('/')}
@@ -205,18 +181,18 @@ function Header () {
               block={false}
               ripple='light'
               className='
-          cursor-pointer
-          justify-evenly 
-          flex
-          items-center
-          font-normal
-          space-x-4
-          '
+              cursor-pointer
+        justify-evenly 
+        flex
+        items-center
+        font-normal
+        space-x-4'
             >
               <Icon name='home' />
               <h2 className='text-lg capitalize'>Home</h2>
             </Button>
             <Button
+              onClick={() => router.push('/products')}
               color='blue'
               size='lg'
               buttonType='link'
@@ -225,35 +201,34 @@ function Header () {
               block={false}
               ripple='light'
               className='
-                cursor-pointer
-          justify-evenly 
-          flex
-          items-center
-          font-normal
-          space-x-4'
+              cursor-pointer
+        justify-evenly 
+        flex
+        items-center
+        font-normal
+        space-x-4'
+            >
+              <Icon name='category' />
+              <h2 className='text-lg capitalize'>Products</h2>
+            </Button>
+            <Button
+              color='blue'
+              size='lg'
+              buttonType='link'
+              rouded={false}
+              iconOnly={false}
+              block={false}
+              ripple='light'
+              className='
+              cursor-pointer
+        justify-evenly 
+        flex
+        items-center
+        font-normal
+        space-x-4'
             >
               <Icon name='info' />
               <h2 className='text-lg capitalize'>About</h2>
-            </Button>
-            <Button
-              onClick={() => router.push('/stocks')}
-              color='blue'
-              size='lg'
-              buttonType='link'
-              rouded={false}
-              iconOnly={false}
-              block={false}
-              ripple='light'
-              className='
-                cursor-pointer
-          justify-evenly 
-          flex
-          items-center
-          font-normal
-          space-x-4'
-            >
-              <Icon name='price_change' />
-              <h2 className='text-lg capitalize'>Stocks</h2>
             </Button>
           </div>
         </ModalBody>
@@ -272,4 +247,4 @@ function Header () {
   )
 }
 
-export default Header
+export default StocksHeader
