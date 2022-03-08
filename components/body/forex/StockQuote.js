@@ -71,7 +71,7 @@ function StockQuote ({
         <ModalBody>
           <div
             className='
-          p-[90px] 
+          p-[60px] 
           flex 
           flex-col 
           place-items-center 
