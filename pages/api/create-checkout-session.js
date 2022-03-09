@@ -1,3 +1,4 @@
+/*
 //call by .../api/checkout-session
 const stripe = require('stripe')(process.env.stripe_secret_key)
 
@@ -24,3 +25,6 @@ export default async(req, res) => {
 
     
 }
+*/
+
+console.log('a dummy text')
