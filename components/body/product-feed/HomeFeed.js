@@ -42,7 +42,7 @@ function HomeFeed ({ items }) {
         '
       >
         {items
-          .slice(0, 4)
+          .slice(5, 9)
           .map(
             ({ id, item_jpg, name, price, category, rating, description }) => (
               <Product

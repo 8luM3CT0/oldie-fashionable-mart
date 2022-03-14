@@ -28,7 +28,7 @@ function StocksFeed ({ forex }) {
     pb-[120px]'
       >
         {forex
-          .slice(0, 4)
+          .slice(7, 11)
           .map(
             ({
               symbol,

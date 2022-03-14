@@ -1,14 +1,32 @@
 //front-end
 import Head from 'next/head'
-import { Header, ProductFeed, ProductHeader, TopItem } from '../components'
+import {
+  ProductFeed,
+  ProductHeader,
+  TopItem,
+  Tab,
+  TabList,
+  TabItem,
+  TabContent,
+  TabPane,
+  Icon
+} from '../components'
 import { creds, auth, provider } from '../backend_services/firebase'
 //back-end
-import { featured_json, top_items } from '../backend_services/index'
+import { useState } from 'react'
+import {
+  featured_json,
+  top_items,
+  weapon,
+  land,
+  character
+} from '../backend_services/index'
 import { useAuthState } from 'react-firebase-hooks/auth'
 
 function products () {
   console.log(featured_json)
   const [user] = useAuthState(creds)
+  const [openTab, setOpenTab] = useState(2)
 
   return (
     <div
@@ -17,7 +35,7 @@ function products () {
       overflow-hidden       
       bg-gradient-to-t
         from-gray-900
-        to-red-900'
+        to-indigo-800'
     >
       <Head>
         <title>RetroMart</title>
@@ -78,7 +96,61 @@ function products () {
         >
           Top selling items
         </h1>
-        <ProductFeed items={featured_json} />
+        <Tab>
+          <div className='bg-gradient-to-b from-gray-900 to-indigo-600'>
+            <TabList color='indigo'>
+              <div className='justify-evenly mx-auto space-x-8 flex items-center'>
+                <TabItem
+                  onClick={e => {
+                    e.preventDefault()
+                    setOpenTab(1)
+                  }}
+                  ripple='light'
+                  active={openTab === 1 ? true : false}
+                  href='tabItem'
+                >
+                  <Icon name='landscape' size='lg' />
+                  Places
+                </TabItem>
+                <TabItem
+                  onClick={e => {
+                    e.preventDefault()
+                    setOpenTab(2)
+                  }}
+                  ripple='light'
+                  active={openTab === 2 ? true : false}
+                  href='tabItem'
+                >
+                  <Icon name='emoji_people' size='lg' />
+                  Characters
+                </TabItem>
+                <TabItem
+                  onClick={e => {
+                    e.preventDefault()
+                    setOpenTab(3)
+                  }}
+                  ripple='light'
+                  active={openTab === 3 ? true : false}
+                  href='tabItem'
+                >
+                  <Icon name='plumbing' size='lg' />
+                  Tools
+                </TabItem>
+              </div>
+            </TabList>
+            <TabContent>
+              <TabPane active={openTab === 1 ? true : false}>
+                <ProductFeed items={land} />
+              </TabPane>
+              <TabPane active={openTab === 2 ? true : false}>
+                <ProductFeed items={character} />
+              </TabPane>
+              <TabPane active={openTab === 3 ? true : false}>
+                <ProductFeed items={weapon} />
+              </TabPane>
+            </TabContent>
+          </div>
+        </Tab>
       </main>
     </div>
   )
