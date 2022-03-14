@@ -112,6 +112,7 @@ function Header () {
             <h2 className='text-lg capitalize'>About</h2>
           </Button>
           <Button
+            onClick={() => router.push('/stocks')}
             color='blue'
             size='lg'
             buttonType='link'
