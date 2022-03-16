@@ -19,14 +19,17 @@ import { creds, store, provider } from '../../../backend_services/firebase'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { useSelector } from 'react-redux'
 import { selectItems } from '../../../backend_services/slices/basketSlice'
+import { signIn, signOut, useSession } from 'next-auth/react'
 
 function Header () {
   const router = useRouter()
   const [user] = useAuthState(creds)
   const [showSignIn, setShowSignIn] = useState(false)
   const [showSignOut, setSignOut] = useState(false)
+  const [gmailAuth, setGmailAuth] = useState(false)
   const [showApps, setShowApps] = useState(false)
   const products = useSelector(selectItems)
+  const { data: session } = useSession()
 
   const googleSignIn = () => {
     creds.signInWithPopup(provider).catch(alert)
@@ -47,8 +50,9 @@ function Header () {
     }
   }, [user])
 
-  const signOut = () => {
+  const firebaseSignOut = () => {
     creds.signOut()
+    setSignOut(false)
   }
 
   return (
@@ -174,6 +178,24 @@ function Header () {
                 className='h-10 w-10 rounded-3xl border-purple-400 border-2'
               />
             </Button>
+          ) : session ? (
+            <Button
+              onClick={e => setGmailAuth(true)}
+              color='purple'
+              buttonType='link'
+              size='regular'
+              iconOnly={false}
+              rounded={false}
+              block={false}
+              ripple='light'
+              className='flex items-center space-x-2 capitalize'
+            >
+              <img
+                src={session?.user.image}
+                alt=''
+                className='h-10 w-10 rounded-3xl border-purple-400 border-2'
+              />
+            </Button>
           ) : (
             <Button
               onClick={e => setShowSignIn(true)}
@@ -241,6 +263,22 @@ function Header () {
             <Button
               onClick={googleSignIn}
               color='green'
+              buttonType='filled'
+              size='regular'
+              iconOnly={false}
+              block={false}
+              rounded={false}
+              className='
+              capitalize 
+              font-google-sans  
+              space-x-4'
+            >
+              <GoogleIcon />
+              <h2 className='text-gray-50 text-base font-normal'>Gmail</h2>
+            </Button>
+            <Button
+              onClick={signIn}
+              color='blueGray'
               buttonType='filled'
               size='regular'
               iconOnly={false}
@@ -416,6 +454,51 @@ function Header () {
             <h2 className='text-xl font-google-sans font-semibold text-purple-500'>
               {user?.displayName}
             </h2>
+            <h5 className='text-base font-google-sans font-light text-purple-500'>
+              {user?.email}
+            </h5>
+            <Button
+              onClick={firebaseSignOut}
+              color='red'
+              size='regular'
+              buttonType='link'
+              iconOnly={false}
+              block={false}
+              rounded={false}
+              ripple='light'
+              className='capitalize'
+            >
+              Sign out
+            </Button>
+          </div>
+        </ModalBody>
+      </Modal>
+      <Modal
+        active={gmailAuth}
+        size='regular'
+        toggler={() => setGmailAuth(false)}
+      >
+        <ModalHeader toggler={() => setGmailAuth(false)}>
+          User details
+        </ModalHeader>
+        <ModalBody>
+          <div className='grid place-items-center space-y-4 p-[40px]'>
+            <img
+              src={session?.user.image}
+              alt=''
+              className='
+              h-20 
+              w-20 
+              rounded-full 
+              border-2 
+              border-purple-400'
+            />
+            <h2 className='text-xl font-google-sans font-semibold text-purple-500'>
+              {session?.user.name}
+            </h2>
+            <h3 className='text-base font-google-sans font-light text-purple-500'>
+              {session?.user.email}
+            </h3>
             <Button
               onClick={signOut}
               color='red'
