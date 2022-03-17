@@ -19,12 +19,14 @@ import { creds, store, provider } from '../../../backend_services/firebase'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { useSelector } from 'react-redux'
 import { selectItems } from '../../../backend_services/slices/basketSlice'
+import { useSession } from 'next-auth/react'
 
 function Header () {
   const router = useRouter()
   const [user] = useAuthState(creds)
   const [showApps, setShowApps] = useState(false)
   const products = useSelector(selectItems)
+  const { data: session } = useSession()
 
   return (
     <>
@@ -142,7 +144,7 @@ function Header () {
             className='flex items-center space-x-2 capitalize'
           >
             <img
-              src={user?.photoURL}
+              src={user?.photoURL || session?.user.image}
               alt=''
               className='h-10 w-10 rounded-3xl border-purple-400 border-2'
             />

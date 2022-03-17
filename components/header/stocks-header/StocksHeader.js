@@ -17,10 +17,12 @@ import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { creds, store, provider } from '../../../backend_services/firebase'
 import { useAuthState } from 'react-firebase-hooks/auth'
+import { useSession } from 'next-auth/react'
 
 function StocksHeader () {
   const router = useRouter()
   const [user] = useAuthState(creds)
+  const { data: session } = useSession()
   const [showApps, setShowApps] = useState(false)
 
   return (
@@ -140,7 +142,7 @@ function StocksHeader () {
               className='flex items-center space-x-2 capitalize'
             >
               <img
-                src={user?.photoURL}
+                src={user?.photoURL || session?.user.image}
                 alt=''
                 className='h-10 w-10 rounded-3xl border-purple-400 border-2'
               />

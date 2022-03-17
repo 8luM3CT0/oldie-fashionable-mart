@@ -13,6 +13,7 @@ import { creds, store } from '../../../backend_services/firebase'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { useDispatch } from 'react-redux'
 import { addToBasket } from '../../../backend_services/slices/basketSlice'
+import { useSession } from 'next-auth/react'
 import firebase from 'firebase'
 
 const MAX_STAT = 5
@@ -25,6 +26,7 @@ function Product ({ id, item_jpg, name, price, category, description }) {
     Math.floor(Math.random() * (MAX_STAT - MIN_STAT + 1)) + MIN_STAT
   )
   const [moreInfo, setMoreInfo] = useState(false)
+  const { data: session } = useSession()
 
   const addToCart = () => {
     const product = {
@@ -36,28 +38,6 @@ function Product ({ id, item_jpg, name, price, category, description }) {
       description
     }
     dispatch(addToBasket(product))
-
-    store
-      .collection('userCart')
-      .doc(user.email)
-      .collection('orders')
-      .doc(id)
-      .collection('orderForTheDay')
-      .doc(id)
-      .set({
-        item_id: id,
-        item_image: item_jpg,
-        item_name: name,
-        item_price: price,
-        item_category: category,
-        item_description: description,
-        timestamp: firebase.firestore.FieldValue.serverTimestamp()
-      })
-      .then(() => {
-        console.log(
-          `SUCCESS!!! Order ${creds.id} has been added to the database`
-        )
-      })
   }
   return (
     <>

@@ -15,6 +15,22 @@
     opacity-80
   }
 
+  .ordersMain{
+    @apply
+    h-screen 
+    overflow-y-scroll 
+    scrollbar-hide 
+    max-w-full
+    lg:max-w-7xl
+    lg:flex
+    items-center
+    grid
+    mx-auto
+    bg-gray-900
+    opacity-80
+    pb-48
+  }
+
   .appName{
     @apply
     text-2xl 

@@ -261,7 +261,7 @@ function Header () {
           '
           >
             <Button
-              onClick={googleSignIn}
+              onClick={signIn}
               color='green'
               buttonType='filled'
               size='regular'
@@ -274,11 +274,11 @@ function Header () {
               space-x-4'
             >
               <GoogleIcon />
-              <h2 className='text-gray-50 text-base font-normal'>Gmail</h2>
+              <h2 className='text-gray-50 text-base font-normal'>Google</h2>
             </Button>
             <Button
-              onClick={signIn}
-              color='blueGray'
+              onClick={googleSignIn}
+              color='blue'
               buttonType='filled'
               size='regular'
               iconOnly={false}
@@ -290,7 +290,7 @@ function Header () {
               space-x-4'
             >
               <GoogleIcon />
-              <h2 className='text-gray-50 text-base font-normal'>Google</h2>
+              <h2 className='text-gray-50 text-base font-normal'>Gmail</h2>
             </Button>
             <Button
               color='gray'
@@ -493,9 +493,14 @@ function Header () {
               border-2 
               border-purple-400'
             />
-            <h2 className='text-xl font-google-sans font-semibold text-purple-500'>
-              {session?.user.name}
-            </h2>
+            <span className='flex text-center space-x-3'>
+              <h3 className='text-lg font-normal font-google-sans text-purple-400'>
+                Session user:
+              </h3>
+              <h2 className='text-xl font-google-sans font-semibold text-purple-500'>
+                {session?.user.name}
+              </h2>
+            </span>
             <h3 className='text-base font-google-sans font-light text-purple-500'>
               {session?.user.email}
             </h3>

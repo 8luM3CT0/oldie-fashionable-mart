@@ -12,23 +12,27 @@ import { useRouter } from 'next/router'
 import firebase from 'firebase'
 import { creds } from '../../../backend_services/firebase'
 import { useAuthState } from 'react-firebase-hooks/auth'
+import { useSession } from 'next-auth/react'
 
 function OrderHeader () {
   const [user] = useAuthState(creds)
+  const { data: session } = useSession()
   const router = useRouter()
 
   return (
     <header
       className='
-    top-0 
+      top-0 
+    z-50 
     sticky
-    z-50
-    px-6
-    justify-evenly 
+    bg-stone-900
     flex
     items-center
-    h-14
-    bg-stone-800
+    justify-evenly
+    space-x-8
+    flex-grow
+    px-7
+    py-3
     '
     >
       <div
@@ -83,7 +87,7 @@ function OrderHeader () {
         ripple='light'
       >
         <img
-          src={user?.photoURL}
+          src={user?.photoURL || session?.user.image}
           alt=''
           className='
           h-10 
