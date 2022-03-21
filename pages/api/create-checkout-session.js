@@ -1,15 +1,14 @@
-/*
 //call by .../api/checkout-session
 const stripe = require('stripe')(process.env.stripe_secret_key)
 
 export default async(req, res) => {
     //pull variables from main page
-    const {items, email} = req.body
+    const {products, email} = req.body
 
-    console.log(items)
+    console.log(products)
     console.log('The email ====>', email)
 
-    const transformedItem = items.map(item => ({
+    const transformedItem = products.map(item => ({
         //implicit return
         description: item.description,
         quantity: 1,
@@ -25,6 +24,3 @@ export default async(req, res) => {
 
     
 }
-*/
-
-console.log('a dummy text')

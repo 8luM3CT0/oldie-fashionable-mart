@@ -9,6 +9,10 @@ import {
   selectItems,
   selectTotal
 } from '../backend_services/slices/basketSlice'
+import { loadStripe } from '@stripe/stripe-js'
+import axios from 'axios'
+
+const stripePromise = loadStripe(process.env.stripe_public_key)
 
 function Orders () {
   const [user] = useAuthState(creds)
@@ -18,6 +22,20 @@ function Orders () {
   const total = useSelector(selectTotal)
 
   console.log(products)
+
+  const createCheckoutSession = async () => {
+    const stripe = await stripePromise
+
+    // call back-end to create a checkout session...
+    const checkoutSession = await axios.post('/api/create-checkout-session', {
+      products,
+      email: user?.email
+    })
+    const result = await stripe.redirectToCheckout({
+      sessionId: checkoutSession.data.id
+    })
+    if (result.error) alert(result.error.message)
+  }
 
   return (
     <div
@@ -94,6 +112,8 @@ function Orders () {
                 </h2>
               </span>
               <Button
+                role='link'
+                onClick={createCheckoutSession}
                 color='deepPurple'
                 size='regular'
                 buttonType='filled'

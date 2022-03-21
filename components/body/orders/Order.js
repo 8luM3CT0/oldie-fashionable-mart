@@ -30,8 +30,9 @@ function Order ({ id, item_jpg, name, price, category, description }) {
       className='
     bg-gray-600 
     hover:opacity-90 
-    grid 
-    grid-cols-5 
+    flex
+    items-center
+    justify-evenly 
     transition 
     transform 
     duration-200 
@@ -40,6 +41,7 @@ function Order ({ id, item_jpg, name, price, category, description }) {
     px-7
     cursor-pointer
     rounded-lg
+    space-x-3
     '
     >
       {/**left */}
@@ -52,7 +54,7 @@ function Order ({ id, item_jpg, name, price, category, description }) {
         object-contain'
       />
       {/** mid*/}
-      <div className='col-span-3 mx-5 space-y-4 py-3'>
+      <div className='orderDetails'>
         <h2
           className='
           text-xl 
@@ -91,19 +93,27 @@ function Order ({ id, item_jpg, name, price, category, description }) {
         </h1>
       </div>
       {/** right*/}
-      <div className='flex flex-col space-y-2 my-auto justify-self-end'>
+      <div
+        className='
+      flex 
+      flex-col 
+      pl-2
+      space-y-2 
+      my-auto 
+      justify-self-end'
+      >
         <Button
           onClick={addItemToCart}
           color='blue'
           buttonType='filled'
-          size='regular'
+          size='sm'
           iconOnly={false}
           block={false}
           rounded={false}
           ripple='light'
         >
           <Icon name='add' />
-          <h2 className='text-xl font-google-sans font-normal capitalize'>
+          <h2 className='text-lg font-google-sans font-normal capitalize'>
             Add
           </h2>
         </Button>
@@ -111,14 +121,14 @@ function Order ({ id, item_jpg, name, price, category, description }) {
           onClick={removeItemFromCart}
           color='blueGray'
           buttonType='filled'
-          size='regular'
+          size='sm'
           iconOnly={false}
           block={false}
           rounded={false}
           ripple='light'
         >
           <Icon name='remove_shopping_cart' />
-          <h2 className='text-xl font-google-sans font-normal capitalize'>
+          <h2 className='text-lg font-google-sans font-normal capitalize'>
             Remove
           </h2>
         </Button>
