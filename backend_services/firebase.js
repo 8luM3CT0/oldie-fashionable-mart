@@ -18,4 +18,4 @@ const creds = app.auth()
 const store = app.firestore()
 const provider = new firebase.auth.GoogleAuthProvider()
 
-export { creds, store, provider }
+export { app, creds, store, provider }
