@@ -113,7 +113,7 @@ function Order ({ id, item_jpg, name, price, category, description }) {
           ripple='light'
         >
           <Icon name='add' />
-          <h2 className='text-lg font-google-sans font-normal capitalize'>
+          <h2 className='lg:text-lg hidden font-google-sans font-normal capitalize'>
             Add
           </h2>
         </Button>
@@ -128,7 +128,7 @@ function Order ({ id, item_jpg, name, price, category, description }) {
           ripple='light'
         >
           <Icon name='remove_shopping_cart' />
-          <h2 className='text-lg font-google-sans font-normal capitalize'>
+          <h2 className='lg:text-lg hidden font-google-sans font-normal capitalize'>
             Remove
           </h2>
         </Button>
