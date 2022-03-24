@@ -20,9 +20,12 @@ import {
 } from '../backend_services/slices/basketSlice'
 import { useRouter } from 'next/router'
 
-function checkout () {
+function Checkout () {
   const [openTab, setOpenTab] = useState(2)
   const router = useRouter()
+
+  const total = useSelector(selectTotal)
+  const products = useSelector(selectItems)
 
   return (
     <div
@@ -48,7 +51,7 @@ function checkout () {
               <TabItem
                 onClick={e => {
                   e.preventDefault()
-                  setOpenTab(1)
+                  setOpenTab(2)
                 }}
                 ripple='light'
                 active={openTab === 1 ? true : false}
@@ -72,7 +75,7 @@ function checkout () {
               <TabItem
                 onClick={e => {
                   e.preventDefault()
-                  setOpenTab(3)
+                  setOpenTab(2)
                 }}
                 ripple='light'
                 active={openTab === 3 ? true : false}
@@ -85,33 +88,131 @@ function checkout () {
           </TabList>
           <TabContent>
             <TabPane active={openTab === 1 ? true : false}>
-              <p>
-                I think that’s a responsibility that I have, to push
-                possibilities, to show people, this is the level that things
-                could be at. So when you get something that has the name Kanye
-                West on it, it’s supposed to be pushing the furthest
-                possibilities. I will be the leader of a company that ends up
-                being worth billions of dollars, because I got the answers. I
-                understand culture. I am the nucleus.
-              </p>
+              <div className='h-full grid space-y-4'>
+                <Button
+                  color='blue'
+                  onClick={e => setOpenTab(2)}
+                  buttonType='link'
+                  iconOnly={true}
+                  rounded={false}
+                  block={false}
+                >
+                  <Icon name='arrow_back_ios' />
+                </Button>
+                {products.length && (
+                  <span
+                    className='
+                    text-xl 
+                  border
+                  bg-gray-800
+                  border-gray-200
+                  rounded-lg
+                  font-google-sans 
+                  font-normal 
+                  text-purple-300 
+                  p-4
+                  grid
+                  max-w-lg
+                  '
+                  >
+                    Total of
+                    <h2 className='text-2xl text-blue-300 font-bold'>
+                      {products.length} products
+                    </h2>
+                    with a price of
+                    <h2 className='text-2xl font-bold'>
+                      <Currency quantity={total} currency='USD' />
+                    </h2>
+                  </span>
+                )}
+              </div>
             </TabPane>
             <TabPane active={openTab === 2 ? true : false}>
-              <p>
-                Ok, here's the big decision. Here's where you make what could
-                either be the biggest mistake of your life, or the best decision
-                ever. So here goes: Cash or Credit ?
-              </p>
+              <div className='grid place-items-center space-y-4'>
+                <p
+                  className='
+              text-2xl 
+              text-blue-300
+              font-google-sans 
+              font-semibold
+              max-w-sm 
+              mx-auto'
+                >
+                  Ok, here's the big decision. Here's where you make what could
+                  either be the biggest mistake of your life, or the best
+                  decision ever. So here goes: Cash or Credit ?
+                </p>
+                <div
+                  className='
+              flex 
+              items-center 
+              space-x-3 
+              mx-auto 
+              max-w-full
+              justify-center
+              '
+                >
+                  <Button
+                    color='green'
+                    onClick={e => setOpenTab(1)}
+                    buttonType='filled'
+                    iconOnly={true}
+                    rounded={false}
+                    block={false}
+                  >
+                    <Icon name='attach_money' />
+                  </Button>
+                  <Button
+                    color='green'
+                    onClick={e => setOpenTab(3)}
+                    buttonType='filled'
+                    iconOnly={true}
+                    rounded={false}
+                    block={false}
+                  >
+                    <Icon name='credit_card' />
+                  </Button>
+                </div>
+              </div>
             </TabPane>
             <TabPane active={openTab === 3 ? true : false}>
-              <p>
-                I think that’s a responsibility that I have, to push
-                possibilities, to show people, this is the level that things
-                could be at. So when you get something that has the name Kanye
-                West on it, it’s supposed to be pushing the furthest
-                possibilities. I will be the leader of a company that ends up
-                being worth billions of dollars, because I got the answers. I
-                understand culture. I am the nucleus.
-              </p>
+              <div className='h-full grid space-y-4'>
+                <Button
+                  color='blue'
+                  onClick={e => setOpenTab(2)}
+                  buttonType='link'
+                  iconOnly={true}
+                  rounded={false}
+                  block={false}
+                >
+                  <Icon name='arrow_back_ios' />
+                </Button>
+                {products.length && (
+                  <span
+                    className='
+                    text-xl 
+                  border
+                  bg-gray-800
+                  border-gray-200
+                  rounded-lg
+                  font-google-sans 
+                  font-normal 
+                  text-purple-300 
+                  p-4
+                  grid
+                  max-w-lg'
+                  >
+                    Total of
+                    <h2 className='text-2xl text-blue-300 font-bold'>
+                      {products.length} products
+                    </h2>
+                    with a price of
+                    <h2 className='text-2xl font-bold'>
+                      <Currency quantity={total} currency='USD' />
+                    </h2>
+                  </span>
+                )}
+              </div>
             </TabPane>
           </TabContent>
         </Tab>
@@ -120,4 +221,4 @@ function checkout () {
   )
 }
 
-export default checkout
+export default Checkout
