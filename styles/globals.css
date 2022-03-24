@@ -31,6 +31,19 @@
     pb-48
   }
 
+  .checkoutMain{
+    @apply
+    h-screen
+    p-5 
+    overflow-y-scroll 
+    scrollbar-hide 
+    max-w-full
+    lg:max-w-7xl
+    mx-auto
+    bg-gray-900
+    opacity-80
+  }
+
   .appName{
     @apply
     text-2xl 

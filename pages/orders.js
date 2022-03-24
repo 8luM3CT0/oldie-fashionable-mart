@@ -23,6 +23,7 @@ import {
 } from '../backend_services/slices/basketSlice'
 import { loadStripe } from '@stripe/stripe-js'
 import axios from 'axios'
+import { useRouter } from 'next/router'
 
 const stripePromise = loadStripe(process.env.stripe_public_key)
 
@@ -35,6 +36,7 @@ function Orders () {
   console.log(products)
 
   const [openTab, setOpenTab] = useState(1)
+  const router = useRouter()
 
   /*const createCheckoutSession = async () => {
     const stripe = await stripePromise
@@ -64,36 +66,27 @@ function Orders () {
       <OrderHeader />
       <main className='homeMain p-5'>
         <Tab>
-          <TabList color='blue' className='justify-evenly max-w-full mx-auto'>
-            <TabItem
-              onClick={e => {
-                e.preventDefault()
-                setOpenTab(1)
-              }}
-              ripple='light'
-              active={openTab === 1 ? true : false}
-              href='tabItem'
-            >
-              <Icon name='shopping_cart' />
-              Orders
-            </TabItem>
-            <TabItem
-              onClick={e => {
-                e.preventDefault()
-                setOpenTab(2)
-              }}
-              ripple='light'
-              active={openTab === 2 ? true : false}
-              href='tabItem'
-            >
-              <Icon name='payment' />
-              Payment
-            </TabItem>
+          <TabList color='blue'>
+            <div className='justify-center max-w-full mx-auto flex items-center'>
+              <TabItem
+                onClick={e => {
+                  e.preventDefault()
+                  setOpenTab(1)
+                }}
+                ripple='light'
+                active={openTab === 1 ? true : false}
+                href='tabItem'
+              >
+                <Icon name='shopping_cart' />
+                Orders
+              </TabItem>
+            </div>
           </TabList>
           <TabContent>
+            {/**Orders list */}
             <TabPane active={openTab == 1 ? true : false}>
               {/**left */}
-              <div className='grid lg:grid-cols-2 grid-cols-1 items-center'>
+              <div className='lg:flex grid items-center'>
                 <div className='flex-grow m-5 shadow-sm'>
                   <div className='flex flex-col p-5 space-y-10 bg-gray-800'>
                     <h1
@@ -155,7 +148,7 @@ shadow-xl'
                         </h2>
                       </span>
                       <Button
-                        onClick={e => setOpenTab(2)}
+                        onClick={() => router.push('/checkout')}
                         disabled={!products}
                         role='link'
                         color='deepPurple'
@@ -177,17 +170,8 @@ shadow-xl'
                 </div>
               </div>
             </TabPane>
-            <TabPane active={openTab === 2 ? true : false}>
-              <p>
-                I will be the leader of a company that ends up being worth
-                billions of dollars, because I got the answers. I understand
-                culture. I am the nucleus. I think that’s a responsibility that
-                I have, to push possibilities, to show people, this is the level
-                that things could be at. I think that’s a responsibility that I
-                have, to push possibilities, to show people, this is the level
-                that things could be at.
-              </p>
-            </TabPane>
+            {/**End of Orders list section */}
+            {/**Payment section */}
           </TabContent>
         </Tab>
       </main>
