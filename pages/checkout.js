@@ -123,7 +123,8 @@ function Checkout () {
                       className='
                     text-xl
                     justify-self-center
-                    w-[420px]
+                    lg:w-[420px]
+                    w-[190px]
                     max-w-xl 
                   border
                   bg-gray-800
@@ -151,8 +152,10 @@ function Checkout () {
                 {/**middle */}
                 <div
                   className='
-                  max-h-[370px]
+                  max-h-[470px]
                   justify-self-center
+                  lg:w-[520px]
+                  w-[290px]
                   max-w-xl
                   space-x-10 
                   overflow-x-scroll 
