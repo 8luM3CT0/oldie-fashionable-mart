@@ -138,6 +138,39 @@
             font-semibold
   }
 
+  .orderDiv{
+    @apply
+    bg-gray-600 
+    hover:opacity-90 
+    lg:flex
+    lg:items-center
+    lg:justify-evenly
+    lg:space-y-0
+    space-y-2
+    grid 
+    place-items-center
+    transition 
+    transform 
+    duration-200 
+    ease-in-out
+    py-5
+    px-7
+    cursor-pointer
+    rounded-lg
+    space-x-3
+  }
+
+  .orderBtns{
+    @apply 
+    lg:grid
+    lg:space-y-3
+    lg:justify-self-end 
+    flex 
+    items-center 
+    pl-2 
+    my-auto 
+  }
+
   .orderDetails{
     @apply
     lg:flex

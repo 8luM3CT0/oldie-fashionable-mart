@@ -26,24 +26,7 @@ function Order ({ id, item_jpg, name, price, category, description }) {
   )
 
   return (
-    <div
-      className='
-    bg-gray-600 
-    hover:opacity-90 
-    flex
-    items-center
-    justify-evenly 
-    transition 
-    transform 
-    duration-200 
-    ease-in-out
-    py-5
-    px-7
-    cursor-pointer
-    rounded-lg
-    space-x-3
-    '
-    >
+    <div className='orderDiv'>
       {/**left */}
       <img
         src={item_jpg}
@@ -93,15 +76,7 @@ function Order ({ id, item_jpg, name, price, category, description }) {
         </h1>
       </div>
       {/** right*/}
-      <div
-        className='
-      flex 
-      flex-col 
-      pl-2
-      space-y-2 
-      my-auto 
-      justify-self-end'
-      >
+      <div className='orderBtns'>
         <Button
           onClick={addItemToCart}
           color='blue'
