@@ -9,7 +9,8 @@ import {
   TabItem,
   Button,
   Icon,
-  MaterialInput
+  MaterialInput,
+  CheckoutItem
 } from '../components/'
 //back-end
 import { creds, store } from '../backend_services/firebase'
@@ -20,6 +21,7 @@ import {
   selectTotal
 } from '../backend_services/slices/basketSlice'
 import { useRouter } from 'next/router'
+import { top_items } from '../backend_services/'
 
 function Checkout () {
   const [openTab, setOpenTab] = useState(2)
@@ -27,6 +29,8 @@ function Checkout () {
 
   const total = useSelector(selectTotal)
   const products = useSelector(selectItems)
+
+  console.log(products)
 
   return (
     <div
@@ -91,37 +95,36 @@ function Checkout () {
             <TabPane active={openTab === 1 ? true : false}>
               <div
                 className='
-              h-full 
-              lg:flex
-              items-center
-              grid'
+              h-screen
+              grid
+              space-y-4
+              '
               >
-                {/**left */}
+                <Button
+                  color='blue'
+                  onClick={e => setOpenTab(2)}
+                  buttonType='link'
+                  iconOnly={true}
+                  rounded={false}
+                  block={false}
+                  className='top-0 left-0 px-4'
+                >
+                  <Icon name='arrow_back_ios' />
+                </Button>
+                {/**top */}
                 <div
                   className='
-                grid 
-                flex-grow
+                grid
                 space-y-4
-                min-w-[290px]
-                max-w-xl 
                 p-10'
                 >
-                  {' '}
-                  <Button
-                    color='blue'
-                    onClick={e => setOpenTab(2)}
-                    buttonType='link'
-                    iconOnly={true}
-                    rounded={false}
-                    block={false}
-                    className='top-0 left-0 z-50 sticky'
-                  >
-                    <Icon name='arrow_back_ios' />
-                  </Button>
                   {products.length && (
                     <div
                       className='
-                    text-xl 
+                    text-xl
+                    justify-self-center
+                    w-[420px]
+                    max-w-xl 
                   border
                   bg-gray-800
                   border-gray-200
@@ -145,8 +148,31 @@ function Checkout () {
                     </div>
                   )}
                 </div>
-                {/**right */}
-                <div className='grid space-y-4 flex-grow px-4'>
+                {/**middle */}
+                <div
+                  className='
+                  max-h-[370px]
+                  justify-self-center
+                  max-w-xl
+                  space-x-10 
+                  overflow-x-scroll 
+                  scrollbar-hide 
+                  flex
+                  items-center
+                  bg-gray-100 
+                  justify-between'
+                >
+                  {products.map((item, i) => (
+                    <CheckoutItem
+                      key={i}
+                      id={item.id}
+                      item_jpg={item.item_jpg}
+                      price={item.price}
+                    />
+                  ))}
+                </div>
+                {/**bottom*/}
+                <div className='grid space-y-4 flex-[0.3] px-4'>
                   <MaterialInput
                     type='text'
                     color='indigo'
@@ -161,14 +187,6 @@ function Checkout () {
                     size='sm'
                     outline={false}
                     placeholder='email...'
-                    className='font-robot-slab font-normal'
-                  />
-                  <MaterialInput
-                    type='text'
-                    color='indigo'
-                    size='sm'
-                    outline={false}
-                    placeholder='alternate email (optional)...'
                     className='font-robot-slab font-normal'
                   />
                   <MaterialInput
@@ -246,12 +264,11 @@ function Checkout () {
             <TabPane active={openTab === 3 ? true : false}>
               <div
                 className='
-              h-full 
-              lg:flex
-              items-center
-              grid'
+              h-screen
+              grid
+              '
               >
-                {/**left */}
+                {/**top */}
                 <div
                   className='
                 grid 
@@ -300,8 +317,8 @@ function Checkout () {
                     </div>
                   )}
                 </div>
-                {/**right */}
-                <div className='grid space-y-4 flex-grow px-4'>
+                {/**bottom*/}
+                <div className='grid space-y-4 flex-[0.3] px-4'>
                   <MaterialInput
                     type='text'
                     color='indigo'
@@ -324,14 +341,6 @@ function Checkout () {
                     size='sm'
                     outline={false}
                     placeholder='email...'
-                    className='font-robot-slab font-normal'
-                  />
-                  <MaterialInput
-                    type='text'
-                    color='indigo'
-                    size='sm'
-                    outline={false}
-                    placeholder='alternate email (optional)...'
                     className='font-robot-slab font-normal'
                   />
                   <MaterialInput
