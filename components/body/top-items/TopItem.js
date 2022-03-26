@@ -9,9 +9,23 @@ import {
 } from '../../index'
 //back-end
 import { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { addToBasket } from '../../../backend_services/slices/basketSlice'
 
 function TopItem ({ id, item_jpg, name, price, category }) {
   const [showItem, setShowItem] = useState(false)
+  const dispatch = useDispatch()
+
+  const addToCart = () => {
+    const product = {
+      id,
+      item_jpg,
+      name,
+      price,
+      category
+    }
+    dispatch(addToBasket(product))
+  }
   return (
     <>
       <div
@@ -86,7 +100,7 @@ function TopItem ({ id, item_jpg, name, price, category }) {
             Close
           </Button>
           <Button
-            onClick={e => setShowItem(false)}
+            onClick={addToCart}
             color='blue'
             buttonType='link'
             iconOnly={false}

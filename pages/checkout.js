@@ -8,7 +8,8 @@ import {
   TabContent,
   TabItem,
   Button,
-  Icon
+  Icon,
+  MaterialInput
 } from '../components/'
 //back-end
 import { creds, store } from '../backend_services/firebase'
@@ -88,20 +89,38 @@ function Checkout () {
           </TabList>
           <TabContent>
             <TabPane active={openTab === 1 ? true : false}>
-              <div className='h-full grid space-y-4'>
-                <Button
-                  color='blue'
-                  onClick={e => setOpenTab(2)}
-                  buttonType='link'
-                  iconOnly={true}
-                  rounded={false}
-                  block={false}
+              <div
+                className='
+              h-full 
+              lg:flex
+              items-center
+              grid'
+              >
+                {/**left */}
+                <div
+                  className='
+                grid 
+                flex-grow
+                space-y-4
+                min-w-[290px]
+                max-w-xl 
+                p-10'
                 >
-                  <Icon name='arrow_back_ios' />
-                </Button>
-                {products.length && (
-                  <span
-                    className='
+                  {' '}
+                  <Button
+                    color='blue'
+                    onClick={e => setOpenTab(2)}
+                    buttonType='link'
+                    iconOnly={true}
+                    rounded={false}
+                    block={false}
+                    className='top-0 left-0 z-50 sticky'
+                  >
+                    <Icon name='arrow_back_ios' />
+                  </Button>
+                  {products.length && (
+                    <div
+                      className='
                     text-xl 
                   border
                   bg-gray-800
@@ -112,19 +131,68 @@ function Checkout () {
                   text-purple-300 
                   p-4
                   grid
-                  max-w-lg
+                  space-y-3
                   '
+                    >
+                      <h1 className='font-light'>Total of</h1>
+                      <h2 className='text-2xl text-blue-300 font-bold'>
+                        {products.length} products
+                      </h2>
+                      <h1 className='font-light'>with a price of</h1>
+                      <h2 className='text-2xl font-bold underline animate-pulse text-red-400'>
+                        <Currency quantity={total} currency='USD' />
+                      </h2>
+                    </div>
+                  )}
+                </div>
+                {/**right */}
+                <div className='grid space-y-4 flex-grow px-4'>
+                  <MaterialInput
+                    type='text'
+                    color='indigo'
+                    size='sm'
+                    outline={false}
+                    placeholder='name...'
+                    className='font-robot-slab font-normal'
+                  />
+                  <MaterialInput
+                    type='text'
+                    color='indigo'
+                    size='sm'
+                    outline={false}
+                    placeholder='email...'
+                    className='font-robot-slab font-normal'
+                  />
+                  <MaterialInput
+                    type='text'
+                    color='indigo'
+                    size='sm'
+                    outline={false}
+                    placeholder='alternate email (optional)...'
+                    className='font-robot-slab font-normal'
+                  />
+                  <MaterialInput
+                    type='text'
+                    color='indigo'
+                    size='sm'
+                    outline={false}
+                    placeholder='amount...'
+                    className='font-robot-slab font-normal'
+                  />
+                  <Button
+                    color='purple'
+                    buttonType='filled'
+                    size='sm'
+                    iconOnly={false}
+                    rounded={false}
+                    block={false}
+                    ripple='light'
+                    className='capitalize'
                   >
-                    Total of
-                    <h2 className='text-2xl text-blue-300 font-bold'>
-                      {products.length} products
-                    </h2>
-                    with a price of
-                    <h2 className='text-2xl font-bold'>
-                      <Currency quantity={total} currency='USD' />
-                    </h2>
-                  </span>
-                )}
+                    <Icon name='payment' />
+                    <h2 className='font-google-sans font-normal'>Pay now</h2>
+                  </Button>
+                </div>
               </div>
             </TabPane>
             <TabPane active={openTab === 2 ? true : false}>
@@ -176,20 +244,38 @@ function Checkout () {
               </div>
             </TabPane>
             <TabPane active={openTab === 3 ? true : false}>
-              <div className='h-full grid space-y-4'>
-                <Button
-                  color='blue'
-                  onClick={e => setOpenTab(2)}
-                  buttonType='link'
-                  iconOnly={true}
-                  rounded={false}
-                  block={false}
+              <div
+                className='
+              h-full 
+              lg:flex
+              items-center
+              grid'
+              >
+                {/**left */}
+                <div
+                  className='
+                grid 
+                flex-grow
+                space-y-4
+                min-w-[290px]
+                max-w-xl 
+                p-10'
                 >
-                  <Icon name='arrow_back_ios' />
-                </Button>
-                {products.length && (
-                  <span
-                    className='
+                  {' '}
+                  <Button
+                    color='blue'
+                    onClick={e => setOpenTab(2)}
+                    buttonType='link'
+                    iconOnly={true}
+                    rounded={false}
+                    block={false}
+                    className='top-0 left-0 z-50 sticky'
+                  >
+                    <Icon name='arrow_back_ios' />
+                  </Button>
+                  {products.length && (
+                    <div
+                      className='
                     text-xl 
                   border
                   bg-gray-800
@@ -200,18 +286,76 @@ function Checkout () {
                   text-purple-300 
                   p-4
                   grid
-                  max-w-lg'
+                  space-y-3
+                  '
+                    >
+                      <h1 className='font-light'>Total of</h1>
+                      <h2 className='text-2xl text-blue-300 font-bold'>
+                        {products.length} products
+                      </h2>
+                      <h1 className='font-light'>with a price of</h1>
+                      <h2 className='text-2xl font-bold underline animate-pulse text-red-400'>
+                        <Currency quantity={total} currency='USD' />
+                      </h2>
+                    </div>
+                  )}
+                </div>
+                {/**right */}
+                <div className='grid space-y-4 flex-grow px-4'>
+                  <MaterialInput
+                    type='text'
+                    color='indigo'
+                    size='sm'
+                    outline={false}
+                    placeholder='card number...'
+                    className='font-robot-slab font-normal'
+                  />
+                  <MaterialInput
+                    type='text'
+                    color='indigo'
+                    size='sm'
+                    outline={false}
+                    placeholder='name...'
+                    className='font-robot-slab font-normal'
+                  />
+                  <MaterialInput
+                    type='text'
+                    color='indigo'
+                    size='sm'
+                    outline={false}
+                    placeholder='email...'
+                    className='font-robot-slab font-normal'
+                  />
+                  <MaterialInput
+                    type='text'
+                    color='indigo'
+                    size='sm'
+                    outline={false}
+                    placeholder='alternate email (optional)...'
+                    className='font-robot-slab font-normal'
+                  />
+                  <MaterialInput
+                    type='text'
+                    color='indigo'
+                    size='sm'
+                    outline={false}
+                    placeholder='amount...'
+                    className='font-robot-slab font-normal'
+                  />
+                  <Button
+                    color='purple'
+                    buttonType='filled'
+                    size='sm'
+                    iconOnly={false}
+                    rounded={false}
+                    block={false}
+                    ripple='light'
+                    className='capitalize'
                   >
-                    Total of
-                    <h2 className='text-2xl text-blue-300 font-bold'>
-                      {products.length} products
-                    </h2>
-                    with a price of
-                    <h2 className='text-2xl font-bold'>
-                      <Currency quantity={total} currency='USD' />
-                    </h2>
-                  </span>
-                )}
+                    <Icon name='payment' />
+                    <h2 className='font-google-sans font-normal'>Pay now</h2>
+                  </Button>
+                </div>
               </div>
             </TabPane>
           </TabContent>

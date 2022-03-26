@@ -15,6 +15,7 @@ export {default as GitHubIcon} from '@mui/icons-material/GitHub'
 export {default as FacebookIcon} from '@mui/icons-material/Facebook'
 export {default as TwitterIcon} from '@mui/icons-material/Twitter'
 export {default as Currency} from 'react-currency-formatter'
+export {default as MaterialInput} from '@material-tailwind/react/Input'
 //local components
 export { default as Header } from './header/main-header/Header'
 export{default as ProductFeed} from './body/product-feed/ProductFeed'
