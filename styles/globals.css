@@ -164,6 +164,8 @@
     @apply 
     lg:grid
     lg:space-y-3
+    lg:space-x-0
+    space-x-3
     lg:justify-self-end 
     flex 
     items-center 
