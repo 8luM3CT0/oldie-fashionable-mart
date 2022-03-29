@@ -1,79 +1,67 @@
 //front-end
 import {
-  Button,
-  Icon,
   Modal,
   ModalHeader,
   ModalBody,
   ModalFooter,
-  GoogleIcon,
-  GitHubIcon,
-  FacebookIcon,
-  TwitterIcon
-} from '../..'
+  Button,
+  Icon
+} from '../../'
 //back-end
-import firebase from 'firebase'
-import { useState, useEffect } from 'react'
-import { useRouter } from 'next/router'
-import { creds, store, provider } from '../../../backend_services/firebase'
+import { useState } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
+import { creds } from '../../../backend_services/firebase'
+import { useRouter } from 'next/router'
 import { useSession } from 'next-auth/react'
 
-function StocksHeader () {
-  const router = useRouter()
+function ListHeader () {
   const [user] = useAuthState(creds)
-  const { data: session } = useSession()
-  const [showApps, setShowApps] = useState(false)
+  const { data: session } = useSession
+  const [showRoutes, setShowRoutes] = useState(false)
   const [showUser, setShowUser] = useState(false)
+  const router = useRouter()
 
   return (
     <>
       <header
         className='
-    top-0 
     z-50 
-    sticky
-    bg-stone-900
+    top-0 
+    sticky 
+    bg-stone-900 
+    px-7 
+    py-3
     flex
     items-center
     justify-evenly
-    space-x-8
     flex-grow
-    px-7
-    py-3
     '
       >
-        <div className='flex items-center space-x-3'>
+        <div className='flex items-center space-x-4'>
           <Button
-            onClick={e => setShowApps(true)}
+            onClick={e => setShowRoutes(true)}
             color='red'
-            size='regular'
             buttonType='link'
             iconOnly={true}
-            rounded={true}
+            rounded={false}
             block={false}
             ripple='light'
             className='lg:hidden'
           >
             <Icon name='menu' />
           </Button>
-          <div
-            className='
-        flex 
-        items-center 
-        space-x-3 
-        cursor-pointer 
-        hover:underline 
-        hover:animate-pulse
-        transform
-        transition
-        duration-300
-        ease-in-out
-        '
+          <Button
+            color='red'
+            buttonType='link'
+            iconOnly={false}
+            rounded={false}
+            block={false}
+            ripple='light'
+            className='capitalize space-x-4'
           >
-            <Icon name='price_change' color='red' />
-            <h2 className='appName'>Stocks</h2>
-          </div>
+            <Icon name='shopping_basket' />
+            <h2 className='appName'>Your orders</h2>
+          </Button>
         </div>
         <div className='headerRouters'>
           <Button
@@ -129,44 +117,43 @@ function StocksHeader () {
             <Icon name='info' />
             <h2 className='text-lg capitalize'>About</h2>
           </Button>
+          <Button
+            onClick={() => router.push('/stocks')}
+            color='blue'
+            size='lg'
+            buttonType='link'
+            rouded={false}
+            iconOnly={false}
+            block={false}
+            ripple='light'
+            className='
+        cursor-pointer 
+        grid 
+        place-items-center
+        font-normal'
+          >
+            <Icon name='price_change' />
+            <h2 className='text-lg capitalize'>Stocks</h2>
+          </Button>
         </div>
         <div className='flex items-center space-x-4'>
-          {user ? (
-            <Button
-              color='purple'
-              buttonType='link'
-              size='regular'
-              iconOnly={false}
-              rounded={false}
-              block={false}
-              ripple='light'
-              className='flex items-center space-x-2 capitalize'
-            >
-              <img
-                src={user?.photoURL || session?.user.image}
-                alt=''
-                className='h-10 w-10 rounded-3xl border-purple-400 border-2'
-              />
-            </Button>
-          ) : (
-            <Button
-              color='purple'
-              buttonType='link'
-              size='regular'
-              iconOnly={false}
-              rounded={false}
-              block={false}
-              ripple='light'
-              className='flex items-center space-x-2 capitalize'
-            >
-              <Icon name='person_add_alt' />
-              <h5 className='signInText'>Sign in</h5>
-            </Button>
-          )}
+          <Button
+            onClick={e => setShowUser(true)}
+            color='blue'
+            buttonType='link'
+            ripple='light'
+            className='px-4 space-x-4'
+          >
+            <img
+              src={user?.photoURL}
+              alt=''
+              className='h-10 w-10 rounded-3xl border-blue-400'
+            />
+          </Button>
         </div>
       </header>
-      <Modal size='lg' active={showApps} toggler={() => setShowApps(false)}>
-        <ModalHeader toggler={() => setShowApps(false)}>Apps</ModalHeader>
+      <Modal size='lg' active={showRoutes} toggler={() => setShowRoutes(false)}>
+        <ModalHeader toggler={() => setShowRoutes(false)}>Apps</ModalHeader>
         <ModalBody>
           <div
             className='
@@ -233,13 +220,33 @@ function StocksHeader () {
               <Icon name='info' />
               <h2 className='text-lg capitalize'>About</h2>
             </Button>
+            <Button
+              onClick={() => router.push('/stocks')}
+              color='blue'
+              size='lg'
+              buttonType='link'
+              rouded={false}
+              iconOnly={false}
+              block={false}
+              ripple='light'
+              className='
+              cursor-pointer
+        justify-evenly 
+        flex
+        items-center
+        font-normal
+        space-x-4'
+            >
+              <Icon name='price_change' />
+              <h2 className='text-lg capitalize'>Stocks</h2>
+            </Button>
           </div>
         </ModalBody>
         <ModalFooter>
           <Button
             color='red'
             buttonType='link'
-            onClick={e => setShowApps(false)}
+            onClick={e => setShowRoutes(false)}
             ripple='dark'
           >
             Close
@@ -279,4 +286,4 @@ function StocksHeader () {
   )
 }
 
-export default StocksHeader
+export default ListHeader

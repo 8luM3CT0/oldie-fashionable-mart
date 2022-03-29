@@ -25,6 +25,7 @@ function Header () {
   const router = useRouter()
   const [user] = useAuthState(creds)
   const [showApps, setShowApps] = useState(false)
+  const [showUser, setShowUser] = useState(false)
   const products = useSelector(selectItems)
   const { data: session } = useSession()
 
@@ -270,6 +271,35 @@ function Header () {
             Close
           </Button>
         </ModalFooter>
+      </Modal>
+      <Modal
+        active={showUser}
+        size='regular'
+        toggler={() => setShowUser(false)}
+      >
+        <ModalHeader toggler={() => setShowUser(false)}>
+          User details
+        </ModalHeader>
+        <ModalBody>
+          <div className='grid place-items-center space-y-4 p-[40px]'>
+            <img
+              src={user?.photoURL}
+              alt=''
+              className='
+              h-20 
+              w-20 
+              rounded-full 
+              border-2 
+              border-purple-400'
+            />
+            <h2 className='text-xl font-google-sans font-semibold text-purple-500'>
+              {user?.displayName}
+            </h2>
+            <h5 className='text-base font-google-sans font-light text-purple-500'>
+              {user?.email}
+            </h5>
+          </div>
+        </ModalBody>
       </Modal>
     </>
   )

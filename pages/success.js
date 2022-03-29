@@ -1,5 +1,5 @@
 //front-end
-import { Header, Button, Icon } from '../components'
+import { FinalHeader, Button, Icon } from '../components'
 //back-end
 import { useRouter } from 'next/router'
 
@@ -14,7 +14,7 @@ function Success () {
       from-gray-900
       to-red-900'
     >
-      <Header />
+      <FinalHeader />
       <main className='homeMain'>
         <div
           className='
@@ -42,10 +42,11 @@ function Success () {
           </div>
           <p className='font-google-sans font-normal text-lg'>
             Thank you for shopping with us. We'll send a confirmtion on your
-            email if your item has shipped, if you would like to check the
-            status of the order(s), please press the link below.
+            email if your item is ready, if you would like to check the history
+            of your order(s), please press the link below.
           </p>
           <Button
+            onClick={() => router.push('/order_list')}
             color='purple'
             buttonType='filled'
             iconOnly={false}
