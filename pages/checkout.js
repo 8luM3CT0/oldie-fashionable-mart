@@ -16,7 +16,7 @@ import {
 import firebase from 'firebase'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { creds, store } from '../backend_services/firebase'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { useSelector } from 'react-redux'
 import {
   selectItems,
@@ -36,6 +36,7 @@ function Checkout () {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [amount, setAmount] = useState('')
+  const imagesRef = useRef(null)
 
   const total = useSelector(selectTotal)
   const products = useSelector(selectItems)

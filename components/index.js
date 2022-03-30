@@ -36,3 +36,4 @@ export {default as CheckoutHeader} from './header/checkout-header/CheckoutHeader
 export {default as CheckoutItem} from './body/checkout_prooduct/CheckoutProduct'
 export {default as FinalHeader} from './header/success-header/SuccessHeader'
 export {default as ListHeader} from './header/list-header/ListHeader'
+export {default as List} from './body/order-list/List'

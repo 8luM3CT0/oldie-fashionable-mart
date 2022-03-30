@@ -32,9 +32,6 @@ function Orders () {
 
   const products = useSelector(selectItems)
   const total = useSelector(selectTotal)
-
-  console.log(products)
-
   const [openTab, setOpenTab] = useState(1)
   const router = useRouter()
 

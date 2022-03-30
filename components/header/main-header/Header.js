@@ -249,6 +249,26 @@ function Header () {
             <Icon name='production_quantity_limits' />
             <h5 className='signInText'>Cart</h5>
           </Button>
+          <Button
+            disabled={!user}
+            onClick={() => router.push('/order_list')}
+            color='purple'
+            buttonType='link'
+            size='regular'
+            iconOnly={false}
+            rounded={false}
+            ripple='light'
+            className='
+            flex 
+            py-3 
+            relative 
+            items-center 
+            space-x-2 
+            capitalize'
+          >
+            <Icon name='shopping_basket' />
+            <h5 className='signInText'>Orders</h5>
+          </Button>
         </div>
       </header>
       <Modal size='lg' active={showSignIn} toggler={() => setShowSignIn(false)}>
